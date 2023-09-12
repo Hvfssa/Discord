@@ -1,0 +1,33 @@
+header{
+    background-color: #424549;
+    width: 100%;
+    nav{
+        max-width: 1500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        p{
+         color: white;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            li{
+                a{
+                    display: block;
+                    padding: 2rem;
+                    text-decoration: none;
+                    color: white;
+                }
+                a:hover{
+                    background-color: #7289da;
+                    color: #424549;
+                }
+            }
+        }
+    }
+}
+body{
+  background-color: #424549;
+}
