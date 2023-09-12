@@ -2,10 +2,10 @@
 
 function error()
 {
-    require_once('./views/error.php');
+    require_once('./app/core/views/error.php');
 }
 
 function notadmin()
 {
-    require_once('./views/errorAdmin.php');
+    require_once('./app/core/views/errorAdmin.php');
 }
