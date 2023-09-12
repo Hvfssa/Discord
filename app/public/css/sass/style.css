@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .AcceuilPages {
   background-color: #36393E;
 }
@@ -29,6 +30,21 @@ header nav ul li a {
 header nav ul li a:hover {
   background-color: #7289da;
   color: #424549;
+}
+
+main img {
+  width: 5rem;
+  text-align: center;
+}
+
+#body_connexion {
+  margin: 0; /* Pour supprimer la marge par défaut du corps de la page */
+  padding: 0; /* Pour supprimer le rembourrage par défaut du corps de la page */
+  background-image: url("./../../src/img/fondConInsc.webp"); /* Remplacez 'chemin/vers/votre-image.jpg' par le chemin de votre image de fond */
+  background-size: cover; /* Pour que l'image de fond couvre toute la fenêtre */
+  background-position: center; /* Pour centrer l'image de fond horizontalement et verticalement */
+  background-repeat: no-repeat; /* Pour éviter que l'image de fond ne se répète */
+  height: 100vh; /* Pour que le corps de la page occupe 100% de la hauteur de la fenêtre */
 }
 
 /*# sourceMappingURL=style.css.map */
