@@ -1,5 +1,13 @@
+$colorWhite:white;
+$blueColor : #7289da;
+$colorGray: #424549;
+$colorBlack : #36393E;
+// Partie Valentin
+.AcceuilPages{
+  background-color: $colorBlack;
+}
 header{
-    background-color: #424549;
+    background-color: $colorGray;
     width: 100%;
     nav{
         max-width: 1500px;
@@ -8,7 +16,7 @@ header{
         justify-content: space-between;
         margin: auto;
         p{
-         color: white;
+         color: $colorWhite;
         }
         ul{
             display: flex;
@@ -21,13 +29,11 @@ header{
                     color: white;
                 }
                 a:hover{
-                    background-color: #7289da;
-                    color: #424549;
+                    background-color: $blueColor;
+                    color: $colorGray;
                 }
             }
         }
     }
 }
-body{
-  background-color: #424549;
-}
+

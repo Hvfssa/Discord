@@ -1,3 +1,7 @@
+.AcceuilPages {
+  background-color: #36393E;
+}
+
 header {
   background-color: #424549;
   width: 100%;
@@ -25,10 +29,6 @@ header nav ul li a {
 header nav ul li a:hover {
   background-color: #7289da;
   color: #424549;
-}
-
-body {
-  background-color: #424549;
 }
 
 /*# sourceMappingURL=style.css.map */

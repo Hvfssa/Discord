@@ -8,7 +8,7 @@
     <script src="./app/public/js/script.js" defer></script>
     <title>Discord</title>
 </head>
-<body>
+<body class="AcceuilPages">
     <header>
         <nav>
             <p>#général</p>
@@ -21,7 +21,7 @@
         </nav>
     </header>
     <main>
-        
+
     </main>
 </body>
 </html>
