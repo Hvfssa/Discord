@@ -32,9 +32,15 @@ header nav ul li a:hover {
   color: #424549;
 }
 
-main img {
-  width: 5rem;
+main .discordPicuture {
+  display: flex;
+  justify-content: center;
+}
+main .welcomeDiscord {
   text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 #body_connexion {

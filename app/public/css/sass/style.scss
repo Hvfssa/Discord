@@ -37,10 +37,16 @@ header{
     }
 }
 main{
- img{
-    width: 5rem;
+  .discordPicuture{
+    display: flex;
+    justify-content: center;
+  }
+  .welcomeDiscord{
     text-align: center;
- }
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+  }
 }
 
 // partie vincent
