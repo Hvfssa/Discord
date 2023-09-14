@@ -1,5 +1,12 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 $colorWhite:white;
 $blueColor : #7289da;
+$hover-color : #36457c;
 $colorGray: #424549;
 $colorBlack : #36393E;
 // Partie Valentin
@@ -50,12 +57,95 @@ main{
 }
 
 // partie vincent
-#body_connexion {
-    margin: 0; /* Pour supprimer la marge par défaut du corps de la page */
-    padding: 0; /* Pour supprimer le rembourrage par défaut du corps de la page */
-    background-image: url('./../../src/img/fondConInsc.webp'); /* Remplacez 'chemin/vers/votre-image.jpg' par le chemin de votre image de fond */
-    background-size: cover; /* Pour que l'image de fond couvre toute la fenêtre */
-    background-position: center; /* Pour centrer l'image de fond horizontalement et verticalement */
-    background-repeat: no-repeat; /* Pour éviter que l'image de fond ne se répète */
-    height: 100vh; /* Pour que le corps de la page occupe 100% de la hauteur de la fenêtre */
-  }
+$background-image: url('./../../src/img/fondConInsc.jpg');
+
+
+.body_form {
+  display: flex;
+  justify-content: center;
+  background-image: $background-image;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .625rem;
+  margin: auto;
+  padding: 1.875rem;
+  width: 70%;
+  border-radius: 5px;
+  background-color: $colorGray;
+}
+
+form h1 {
+  color: $colorWhite;
+}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $colorWhite;
+  background-color: $colorBlack;
+  outline: 2px solid $blueColor;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  outline: 2px solid $blueColor;
+  background-color: $hover-color;
+}
+
+.label {
+  align-self: flex-start;
+  color: $colorWhite;
+  font-weight: 600;
+}
+
+form .submit {
+  padding: 1rem 0.75rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: $blueColor;
+  color: $colorWhite;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+form .submit:hover {
+  background-color: $hover-color;
+  color: $colorWhite;
+}
+
+.span {
+  text-decoration: none;
+  color: $colorWhite;
+}
+
+.span a {
+  color: $blueColor;
+}
