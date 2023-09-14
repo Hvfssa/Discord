@@ -79,35 +79,52 @@ function register(){
 }
 
 function showLoginForm(){
-    require("./app/core/views/formRegister.php");
-
+    require("./app/core/views/formLogin.php");
 }
 
 function logIn(){
     require("./app/core/models/UserModel.php");
-
-
-    $userExists = getByOneUser($pseudo);
-
-    if ($userExists === 1) {
-        
-
         $connectGump = new GUMP();
 
         $connectGump->validation_rules([
             'pseudo' => ['required'=> 'Veuillez remplir le champ pseudo.'],
-            'mdp' => '',
+            'mdp' => ['required'=> 'Veuillez remplir le champ pseudo.'],
             
         ]);
 
+        $connectGump->set_fields_error_messages([
+            'pseudo' => ['required'=> 'Veuillez remplir le champ pseudo.'],
+            'mdp' => ['required' => 'Veuillez remplir ce champ.'],
+        ]);
 
+        $gump->filter_rules([
+            'pseudo' => 'trim|htmlencode',
+            'mdp' => 'trim|htmlencode',
+        ]);
 
+        $valid_data = $gump->run($_POST);
 
+        $userExists = getByOneUser($pseudo);
+        
+    
+        if ($gump->errors()) {
+            var_dump($gump->get_readable_errors());
+            // redirect form
+        }
+        else {
+            if (getByOneUser($valid_data["pseudo"]) === 1 && getByOneUser($valid_data["pseudo"])['mdp'] === $valid_data["mdp"]) {
+                var_dump($valid_data["pseudo"]);
+                var_dump(password_hash($valid_data["mdp"], PASSWORD_ARGON2I));
 
-    }
-    else {
-        # code...
-    }
+                addUser($pseudo, $password, $picture);
+    
+                // creation session
+                // redirection page
+            
+            }else {
+                var_dump("Le nom d'utilisateur est déja utilisé");
+            }
+        }
 
 
     // verification et création de session/ cookie
@@ -123,6 +140,12 @@ function signOut(){
 
 
 function showUpdateForm(){
+    require("./app/core/models/UserModel.php");
+
+    getByIdUser($id);
+
+    require("./app/core/views/formRegister.php");
+
     // require modele user
 
     // select des données de l'utilisateur
@@ -130,13 +153,16 @@ function showUpdateForm(){
     // require view formulaire de mise a jour utilisateur 
 
     // appelle fonction modification
-
+    
 }
 
 function modify(){
+    require("./app/core/models/UserModel.php");
+
     // controlle données
-
+    
     // modification BDD
-
+    
     // redirection ou message erreur
+    updateUser($id,$pseudo, $mdp, $pfpic);
 }
