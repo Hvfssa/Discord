@@ -13,6 +13,8 @@ require_once('./../header.php');
             <input type="text" name="pseudo"></span>
         <label for="mdp" class="label">Mot de passe</label>
         <input type="password" name="mdp" id="password">
+        <label for="mdpVerify" class="label">Entrez de nouveau votre mot de passe</label>
+        <input type="password" name="mdpVerify" id="password">
         </span>
         <input class="submit" type="submit" name="envoi" value="Inscription">
         <span class="span">Vous avez déjà un compte ?
