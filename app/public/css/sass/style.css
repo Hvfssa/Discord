@@ -60,16 +60,25 @@ main .welcomeDiscord {
 main .welcomeDiscord a {
   color: #7289da;
 }
-main .formMess {
+
+.salonPage .messageSalon {
+  top: 50%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.salonPage .formMess {
   position: absolute;
   bottom: 0;
   transform: translate(-50%, 50%);
   left: 50%;
 }
-main .formMess .champ {
+.salonPage .formMess .champ {
   position: relative;
 }
-main .formMess .champ .chatPost {
+.salonPage .formMess .champ .chatPost {
   border-radius: 0 10px 10px 0;
   position: absolute;
   right: 0;
@@ -79,7 +88,7 @@ main .formMess .champ .chatPost {
   width: 2rem;
   cursor: pointer;
 }
-main .formMess .champ textarea {
+.salonPage .formMess .champ textarea {
   border-radius: 10px;
   background-color: #7289da;
   padding: 0.3rem;

@@ -78,12 +78,22 @@ main {
         }
     }
 
+}
+.salonPage{
+  .messageSalon{
+    top: 50%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
     .formMess {
         position: absolute;
         bottom: 0;
         transform: translate(-50%, 50%);
         left: 50%;
-
+        
         .champ {
             position: relative;
 
@@ -91,21 +101,21 @@ main {
                 border-radius: 0 10px 10px 0;
                 position: absolute;
                 right: 0;
-                height: 92%;
-                background-color: #424549;
-                color: white;
-                width: 2rem;
-                cursor: pointer;
-            }
-
-            textarea {
-                border-radius: 10px;
-                background-color: $blueColor;
-                padding: 0.3rem;
-                width: 25rem;
-            }
+            height: 92%;
+            background-color: #424549;
+            color: white;
+            width: 2rem;
+            cursor: pointer;
+        }
+        
+        textarea {
+            border-radius: 10px;
+            background-color: $blueColor;
+            padding: 0.3rem;
+            width: 25rem;
         }
     }
+}
 }
 
 // partie vincent

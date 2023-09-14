@@ -1,8 +1,16 @@
 <?php
 $pageContent = "Connectez-vous pour acceder à toutes nos fonctions";
 $pageTitle = "Formulaire de connexion";
-require_once("../header.php");
+
 ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet de groupe sur discord">
+    <link rel="stylesheet" href="../../../public/css/sass/style.css">
+
+    <title>Discord</title>
+</head>
 
 <section class="body_form">
     <form class="form" method="POST" action="#">
