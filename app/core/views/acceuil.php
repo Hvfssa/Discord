@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,15 @@
 
     <title>Discord</title>
 </head>
+
 <body class="AcceuilPages">
     <header>
         <nav>
             <p>#général</p>
             <ul>
-                <li><a href="#">Channel</a></li>
-                <li><a href="#">Notification</a></li>
-                <li><a href="#">Messages epinglés</a></li>
-                <li><a href="#">Amis</a></li>
+                <li><a href="#">Se Connecter</a></li>
+                <li><a href="#">S'inscrire</a></li>
+                <li><a href="#">Se Deconnecter</a></li>
             </ul>
         </nav>
     </header>
@@ -25,9 +26,16 @@
             <img src="../../../app/public/src/img/discord.svg" alt="Image du logo de discord dans le main">
         </div>
         <p class="welcomeDiscord">Bienvenue sur discord ! Ecrivez votre premier message</p>
+        <form class="formMess" action="#" method="POST">
+            <div class="champ">
+                <textarea name="mess" id="formAcceuil" maxlength="255" placeholder="Envoyer un message"></textarea>
+                <input class="chatPost" type="submit" value=">">
+            </div>
+        </form>
     </main>
     <footer>
 
     </footer>
 </body>
+
 </html>
