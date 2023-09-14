@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="./app/public/js/script.js" defer></script>
     <title>Discord</title>
 </head>
+
 <body class="AcceuilPages">
     <header>
         <nav>
@@ -21,7 +23,9 @@
         </nav>
     </header>
     <main>
-         <img src="../../../app/public/src/img/discord.svg" alt="Image du logo de discord dans le main">
+        <img src="../../../app/public/src/img/discord.svg" alt="Image du logo de discord dans le main">
     </main>
 </body>
+<script src="../../public/js/scriptScrollTo.js"></script>
+
 </html>

@@ -1,53 +1,65 @@
-*, ::before, ::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-$colorWhite:white;
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$colorWhite: white;
 $blueColor : #7289da;
 $hover-color : #36457c;
 $colorGray: #424549;
 $colorBlack : #36393E;
+
 // Partie Valentin
-.AcceuilPages{
+.AcceuilPages {
   background-color: $colorBlack;
 }
-header{
-    background-color: $colorGray;
-    width: 100%;
-    nav{
-        max-width: 1500px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: auto;
-        p{
-         color: $colorWhite;
-        }
-        ul{
-            display: flex;
-            list-style: none;
-            li{
-                a{
-                    display: block;
-                    padding: 2rem;
-                    text-decoration: none;
-                    color: white;
-                }
-                a:hover{
-                    background-color: $blueColor;
-                    color: $colorGray;
-                }
-            }
-        }
+
+header {
+  background-color: $colorGray;
+  width: 100%;
+
+  nav {
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+
+    p {
+      color: $colorWhite;
     }
+
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        a {
+          display: block;
+          padding: 2rem;
+          text-decoration: none;
+          color: white;
+        }
+
+        a:hover {
+          background-color: $blueColor;
+          color: $colorGray;
+        }
+      }
+    }
+  }
 }
-main{
- img{
+
+main {
+  img {
     width: 5rem;
     text-align: center;
- }
+  }
 }
 
 // partie vincent
@@ -142,4 +154,38 @@ form .submit:hover {
 
 .span a {
   color: $blueColor;
+}
+
+
+//         //          PARTIE JAVASCRIPT        //        //
+#up {
+  position: fixed;
+  bottom: 0;
+  background-color: #424549;
+  opacity: 80%;
+  color: white;
+  padding: 0.5rem 3rem;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+#up::before,
+#up::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
+  right: 0;
+  top: 50%;
+}
+#up::before {
+  right: 80px;
+  transform: rotate(45deg);
+}
+#up::after {
+  right: 65px;
+  transform: rotate(315deg);
 }

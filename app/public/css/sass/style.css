@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-*, ::before, ::after {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+*,
+::before,
+::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-=======
-@charset "UTF-8";
->>>>>>> f67cf9ffae99bdabcebee638e5cb3c0e3ad40123
 .AcceuilPages {
   background-color: #36393E;
 }
@@ -41,7 +40,11 @@ header nav ul li a:hover {
   color: #424549;
 }
 
-<<<<<<< HEAD
+main img {
+  width: 5rem;
+  text-align: center;
+}
+
 .body_form {
   display: flex;
   justify-content: center;
@@ -130,22 +133,38 @@ form .submit:hover {
 
 .span a {
   color: #7289da;
+}
+
+#up {
+  position: fixed;
+  bottom: 0;
+  background-color: #424549;
+  opacity: 80%;
+  color: white;
+  padding: 0.5rem 3rem;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+#up::before,
+#up::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
+  right: 0;
+  top: 50%;
+}
+
+#up::before {
+  right: 80px;
+  transform: rotate(45deg);
+}
+
+#up::after {
+  right: 65px;
+  transform: rotate(315deg);
 }/*# sourceMappingURL=style.css.map */
-=======
-main img {
-  width: 5rem;
-  text-align: center;
-}
-
-#body_connexion {
-  margin: 0; /* Pour supprimer la marge par défaut du corps de la page */
-  padding: 0; /* Pour supprimer le rembourrage par défaut du corps de la page */
-  background-image: url("./../../src/img/fondConInsc.webp"); /* Remplacez 'chemin/vers/votre-image.jpg' par le chemin de votre image de fond */
-  background-size: cover; /* Pour que l'image de fond couvre toute la fenêtre */
-  background-position: center; /* Pour centrer l'image de fond horizontalement et verticalement */
-  background-repeat: no-repeat; /* Pour éviter que l'image de fond ne se répète */
-  height: 100vh; /* Pour que le corps de la page occupe 100% de la hauteur de la fenêtre */
-}
-
-/*# sourceMappingURL=style.css.map */
->>>>>>> f67cf9ffae99bdabcebee638e5cb3c0e3ad40123
