@@ -1,3 +1,9 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .AcceuilPages {
   background-color: #36393E;
 }
@@ -31,4 +37,92 @@ header nav ul li a:hover {
   color: #424549;
 }
 
-/*# sourceMappingURL=style.css.map */
+.body_form {
+  display: flex;
+  justify-content: center;
+  background-image: url("./../../src/img/fondConInsc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  margin: auto;
+  padding: 1.875rem;
+  width: 70%;
+  border-radius: 5px;
+  background-color: #424549;
+}
+
+form h1 {
+  color: white;
+}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form input[type=text],
+form input[type=password] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  background-color: #36393E;
+  outline: 2px solid #7289da;
+}
+
+form input[type=text]:focus,
+form input[type=password]:focus {
+  outline: 2px solid #7289da;
+  background-color: #36457c;
+}
+
+.label {
+  align-self: flex-start;
+  color: white;
+  font-weight: 600;
+}
+
+form .submit {
+  padding: 1rem 0.75rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: #7289da;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+form .submit:hover {
+  background-color: #36457c;
+  color: white;
+}
+
+.span {
+  text-decoration: none;
+  color: white;
+}
+
+.span a {
+  color: #7289da;
+}/*# sourceMappingURL=style.css.map */
