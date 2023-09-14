@@ -15,9 +15,11 @@
         <nav>
             <p>#général</p>
             <ul>
-                <li><a href="#">Se Connecter</a></li>
-                <li><a href="#">S'inscrire</a></li>
+                <li><a href="./users/formLogin.php">Se Connecter</a></li>
+                <li><a href="./users/formRegister.php">S'inscrire</a></li>
+                <!-- Config si on se connecte -->
                 <li><a href="#">Se Deconnecter</a></li>
+                <li><a href="#">Votre Profil</a></li>
             </ul>
         </nav>
     </header>
@@ -25,7 +27,10 @@
         <div class="discordPicuture">
             <img src="../../../app/public/src/img/discord.svg" alt="Image du logo de discord dans le main">
         </div>
-        <p class="welcomeDiscord">Bienvenue sur discord ! Ecrivez votre premier message</p>
+        <p class="welcomeDiscord">Bienvenue sur discord ! Connectez vous pour accéder au <a href="./users/formLogin.php"> salon</a></p>
+        <div class="paragInsc">
+            <p class="welcomeDiscord">Vous n'avez pas de compte ? Vous pouvez vous inscrire <a href="./users/formRegister.php"> Maitnenant</a></p>
+        </div>  
         <form class="formMess" action="#" method="POST">
             <div class="champ">
                 <textarea name="mess" id="formAcceuil" maxlength="255" placeholder="Envoyer un message"></textarea>

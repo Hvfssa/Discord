@@ -5,12 +5,13 @@
     margin: 0;
     padding: 0;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap');
 $colorWhite: white;
 $blueColor : #7289da;
 $hover-color : #36457c;
 $colorGray: #424549;
 $colorBlack : #36393E;
+$fontJosefin : 'Josefin Sans';
 
 // Partie Valentin
 .AcceuilPages {
@@ -41,7 +42,8 @@ header {
                     display: block;
                     padding: 2rem;
                     text-decoration: none;
-                    color: white;
+                    color: $colorWhite;
+                    font-family: $fontJosefin ;
                 }
 
                 a:hover {
@@ -66,10 +68,14 @@ main {
 
     .welcomeDiscord {
         text-align: center;
-        color: white;
+        color: $colorWhite;
         font-weight: bold;
         text-transform: uppercase;
         margin-top: 15rem;
+        font-family: $fontJosefin; 
+        a{
+            color: $blueColor;
+        }
     }
 
     .formMess {
@@ -89,6 +95,7 @@ main {
                 background-color: #424549;
                 color: white;
                 width: 2rem;
+                cursor: pointer;
             }
 
             textarea {

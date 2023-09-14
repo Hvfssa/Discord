@@ -12,4 +12,14 @@
     <link rel="icon" href="../../../public/src/img/favicon.png">
 </head>
 
-<body>
+<body class="AcceuilPages">
+    <header>
+            <nav>
+                <p>#général</p>
+                <ul>
+                    <li><a href="./users/formLogin.php">Se Connecter</a></li>
+                    <li><a href="./users/formRegister.php">S'inscrire</a></li>
+                    <li><a href="#">Se Deconnecter</a></li>
+                </ul>
+            </nav>
+        </header>
