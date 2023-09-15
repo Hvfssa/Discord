@@ -3,7 +3,7 @@
 function all()
 {
     require_once('./app/core/models/MessageModel.php');
-    $results = getAllMessages();
+    $messages = getAllMessages();
     require_once('./app/core/views/message/all.php');
 }
 
@@ -19,7 +19,7 @@ function add()
 {
     require_once('./app/core/models/MessageModel.php');
     // Stockage des données issues du formulaire sous forme de variables individuelles 
-    $content = $_POST['fromAccueuil'];
+    $content = $_POST['formAcceuil'];
 
     addMessage($content);
 }
