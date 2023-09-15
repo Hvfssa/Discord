@@ -32,12 +32,12 @@ function getByIdMessage(int $id)
 // function getByContentMessage(string $content){
 // }
 
-function addMessage(string $content)
+function addMessage(string $content, $dateTime, $userId ,$channelId)
 {
     require_once('dbConnect.php');
 
     if ($pdoConn) {
-        $req = "INSERT INTO messages (content) VALUES ('$content')";
+        $req = "INSERT INTO messages (content, createdAt, channelId, userId) VALUES ('$content', '$dateTime', '$userId', '$channelId)";
         $exec = $pdoConne->query($req);
 
         if ($exec) {
