@@ -1,6 +1,7 @@
 <?php
 
 require_once './app/core/models/ChannelModel.php';
+require "vendor/wixel/gump/gump.class.php";
 
 function showAllChannels() {
     require_once './app/core/views/channels/all.php';
@@ -11,7 +12,17 @@ function showAddFormChannel() {
 }
 function sendAddChannel() {
     if($_POST && $_POST["submit"]) {
+
+        
+
+
         $verif = new GUMP('fr');
+
+        $verif->set_field_names([
+            'name' => $_POST['nom'],
+            'description' => $_POST['description'],
+            'picture' => $_POST['image'],
+        ]);
 
         $verif->validation_rules([
             'name' => 'required|alpha_numeric|max_len,50',
@@ -42,7 +53,18 @@ function sendAddChannel() {
                 'picture' => 'trim|htmlencode|sanitize_string',
             ]);
 
-        header('Location: ./app/core/views/channels/all.php');
+            $is_valid = $verif->run($_POST);
+            
+            if ($is_valid === true) {
+                $name = $_POST['nom'];
+                $desc = $_POST['description'];
+                $pic = $_POST['image'];
+                addChannel($name, $desc, $pic);
+                header('Location: ./app/core/views/channels/all.php');
+            } else {
+                echo $verif->get_readable_errors(); // ['Field <span class="gump-field">Somefield</span> is required.']
+            }
+
     } else {
         header('Location: ./app/core/views/main/error.php');
     }
