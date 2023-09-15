@@ -11,13 +11,12 @@ require_once("../header.php");
 
     </section>
     <aside>
-        <div>
-            <img src="#" alt="image du salon">
-            <span><!-- Nom du salon --></span>
-        </div>
-
-
-
+        <a href="#"><!-- Redirection vers le salon -->
+            <div class="positionChannel">
+                <img class="imgChannel" src="../../../public/src/img/favicon.png" alt="image du salon">
+                <span>Nom du salon</span>
+            </div>
+        </a>
     </aside>
 
 
