@@ -22,8 +22,8 @@ header nav {
   justify-content: space-between;
   margin: auto;
 }
-header nav p {
-  color: white;
+header nav img {
+  width: 3rem;
 }
 header nav ul {
   display: flex;

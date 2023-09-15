@@ -9,7 +9,7 @@
 </head>
 <header>
         <nav>
-            <p>#général</p>
+        <img src="../../../public/src/img/favicon.png" alt="Logo de discord sur le header">
             <ul>
                 <li><a href="./users/formLogin.php">Se Connecter</a></li>
                 <li><a href="./users/formRegister.php">S'inscrire</a></li>
