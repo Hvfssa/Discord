@@ -4,8 +4,8 @@
     // par défaut (si les paramètres "controlleur" et "action" ne sont pas 
     // renseignés dans l'URL.
 
-    $ctrlName = 'home';
-    $fonction = 'accueil';
+    $ctrlName = 'main';
+    $fonction = 'homepage';
 
     // Vérifie qu'un paramètre "controlleur" existe dans l'URL
     // et qu'il n'est pas vide

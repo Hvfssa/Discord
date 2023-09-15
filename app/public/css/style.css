@@ -1,58 +1,76 @@
-/* Error: expected "{".
- *    ,
- * 33 |         max-width: 1500px;
- *    |                          ^
- *    '
- *   style.scss 33:26  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-.AcceuilPages {
-  background-color: #36393E;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap");
 header {
   background-color: #424549;
   width: 100%;
 }
-header nav {
+header nav *,
+header nav ::before,
+header nav ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header nav .AcceuilPages {
+  background-color: #36393E;
+}
+header nav body {
+  background-color: #424549;
+}
+header nav body header {
+  background-color: #424549;
+  width: 100%;
+}
+header nav body header nav {
   max-width: 1500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: auto;
 }
-header nav img {
-  width: 3rem;
+header nav body header nav p {
+  color: white;
 }
-header nav ul {
+header nav body header nav ul {
   display: flex;
   list-style: none;
 }
-header nav ul li a {
+header nav body header nav ul li a {
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 33 \2502          max-width: 1500px;\d\a    \2502                           ^\a    \2575 \a   style.scss 33:26  root stylesheet';
+  padding: 2rem;
+  text-decoration: none;
+  color: white;
 }
-
-header nav ul li a:hover {
+header nav body header nav ul li a:hover {
   background-color: #7289da;
   color: #424549;
 }
-
-main .discordPicuture {
+header nav body header nav ul li a:hover img {
+  width: 3rem;
+}
+header nav body header nav ul li a:hover ul {
+  display: flex;
+  list-style: none;
+}
+header nav body header nav ul li a:hover ul li a {
+  display: block;
+  padding: 2rem;
+  text-decoration: none;
+  color: white;
+  font-family: "Josefin Sans";
+}
+header nav body header nav ul li a:hover ul li a:hover {
+  background-color: #7289da;
+  color: #424549;
+}
+header nav body header main .discordPicuture {
   display: flex;
   justify-content: center;
 }
-main .discordPicuture img {
+header nav body header main .discordPicuture img {
   width: 5rem;
   margin-top: 5rem;
 }
-main .welcomeDiscord {
+header nav body header main .welcomeDiscord {
   text-align: center;
   color: white;
   font-weight: bold;
@@ -60,11 +78,10 @@ main .welcomeDiscord {
   margin-top: 15rem;
   font-family: "Josefin Sans";
 }
-main .welcomeDiscord a {
+header nav body header main .welcomeDiscord a {
   color: #7289da;
 }
-
-.salonPage .messageSalon {
+header nav body header .salonPage .messageSalon {
   top: 50%;
   text-align: center;
   color: white;
@@ -72,16 +89,16 @@ main .welcomeDiscord a {
   left: 50%;
   transform: translate(-50%, 50%);
 }
-.salonPage .formMess {
+header nav body header .salonPage .formMess {
   position: absolute;
   bottom: 0;
   transform: translate(-50%, 50%);
   left: 50%;
 }
-.salonPage .formMess .champ {
+header nav body header .salonPage .formMess .champ {
   position: relative;
 }
-.salonPage .formMess .champ .chatPost {
+header nav body header .salonPage .formMess .champ .chatPost {
   border-radius: 0 10px 10px 0;
   position: absolute;
   right: 0;
@@ -91,14 +108,13 @@ main .welcomeDiscord a {
   width: 2rem;
   cursor: pointer;
 }
-.salonPage .formMess .champ textarea {
+header nav body header .salonPage .formMess .champ textarea {
   border-radius: 10px;
   background-color: #7289da;
   padding: 0.3rem;
   width: 25rem;
 }
-
-.contnair {
+header nav body header .contnair {
   height: 100vh;
   background-image: url("./../../src/img/fondConInsc.jpg");
   display: flex;
@@ -107,7 +123,7 @@ main .welcomeDiscord a {
   background-position: center;
   background-repeat: no-repeat;
 }
-.contnair .all {
+header nav body header .contnair .all {
   background: #424549;
   height: 50vh;
   margin: auto;
@@ -115,33 +131,32 @@ main .welcomeDiscord a {
   border: solid 2px #424549;
   box-shadow: -1px 3px 10px 10px #7289da;
 }
-.contnair .all h2 {
+header nav body header .contnair .all h2 {
   color: white;
   padding-top: 5rem;
   font-family: "Josefin Sans";
   text-align: center;
 }
-.contnair .all .blocJoinCreate {
+header nav body header .contnair .all .blocJoinCreate {
   font-family: "Josefin Sans";
   color: white;
   margin-top: 10rem;
   display: flex;
   justify-content: space-around;
 }
-.contnair .all .blocJoinCreate a {
+header nav body header .contnair .all .blocJoinCreate a {
   font-family: "Josefin Sans";
   transition: 0.5s;
   padding: 2rem;
   color: white;
   text-decoration: none;
 }
-.contnair .all .blocJoinCreate a:hover {
+header nav body header .contnair .all .blocJoinCreate a:hover {
   font-size: 2rem;
   cursor: pointer;
   background-color: #7289da;
 }
-
-.body_form {
+header nav body header .body_form {
   display: flex;
   justify-content: center;
   background-image: url("./../../src/img/fondConInsc.jpg");
@@ -150,8 +165,7 @@ main .welcomeDiscord a {
   background-repeat: no-repeat;
   height: 100vh;
 }
-
-.form {
+header nav body header .form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,20 +176,17 @@ main .welcomeDiscord a {
   border-radius: 5px;
   background-color: #424549;
 }
-
-form h1 {
+header nav body header form h1 {
   color: white;
 }
-
-.form .input-span {
+header nav body header .form .input-span {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
-form input[type=text],
-form input[type=password] {
+header nav body header form input[type=text],
+header nav body header form input[type=password] {
   border-radius: 0.5rem;
   padding: 1rem 0.75rem;
   width: 100%;
@@ -187,20 +198,17 @@ form input[type=password] {
   background-color: #36393E;
   outline: 2px solid #7289da;
 }
-
-form input[type=text]:focus,
-form input[type=password]:focus {
+header nav body header form input[type=text]:focus,
+header nav body header form input[type=password]:focus {
   outline: 2px solid #7289da;
   background-color: #36457c;
 }
-
-.label {
+header nav body header .label {
   align-self: flex-start;
   color: white;
   font-weight: 600;
 }
-
-form .submit {
+header nav body header form .submit {
   padding: 1rem 0.75rem;
   width: 50%;
   display: flex;
@@ -216,48 +224,44 @@ form .submit {
   font-weight: 600;
   font-size: 0.9rem;
 }
-
-form .submit:hover {
+header nav body header form .submit:hover {
   background-color: #36457c;
   color: white;
 }
-
-.span {
+header nav body header .span {
   text-decoration: none;
   color: white;
 }
-
-.span a {
+header nav body header .span a {
   color: #7289da;
 }
-
-.white {
+header nav body header .white {
   display: flex;
   justify-content: center;
   color: white;
 }
-
-.positionChannel {
+header nav body .positionChannel {
   display: flex;
   align-items: center;
   transition: transform 0.2s;
 }
-
-.imgChannel {
+header nav body .imgChannel {
   width: 40px;
   height: 40px;
 }
-
-aside {
+header nav body aside {
   width: 25%;
   border-right: 2px solid cornflowerblue;
 }
-aside span {
+header nav body aside span {
   display: flex;
   color: white;
 }
-
-.positionChannel:hover {
+header nav body .positionChannel:hover {
   transform: scale(1.1);
-}/*# sourceMappingURL=style.css.map */
+}
+header nav body .white {
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */

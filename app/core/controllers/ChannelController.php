@@ -1,6 +1,7 @@
 <?php
 
 function showAllChannels() {
+    require_once './app/core/views/salon/salonDispo.php';
 
 }
 function showAddFormChannel() {
