@@ -27,7 +27,7 @@ function sendAddChannel() {
             'picture' => 'extension,png;jpg;gif|max_len,255',
         ]);
 
-        $verif->set_error_messages([
+        $verif->set_fields_error_messages([
             'name' => [
                 'required' => 'le nom ne peut pas être vide',
                 'alpha_numeric' => 'le nom ne peut contenir que des lettres et des chiffres',
@@ -87,7 +87,7 @@ function sendUpdateChannel() {
             'picture' => 'extension,png;jpg;gif|max_len,255',
         ]);
 
-        $verif->set_error_messages([
+        $verif->set_fields_error_messages([
             'id' => [
                 'required' => 'le nom ne peut pas être vide',
                 'numeric' => 'le nom ne peut contenir que des chiffres',
@@ -144,7 +144,7 @@ function sendDeleteChannel() {
             'id' => 'required|numeric',
         ]);
 
-        $verif->set_error_messages([
+        $verif->set_fields_error_messages([
             'id' => [
                 'required' => 'le nom ne peut pas être vide',
                 'numeric' => 'le nom ne peut contenir que des chiffres',
