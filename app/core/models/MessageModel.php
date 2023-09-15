@@ -25,7 +25,6 @@ function getByIdMessage(int $id)
         $exec = $pdoConn->query($req);
 
         if ($exec) {
-            echo "Votre message à été suprimmé avec succès";
         }
     }
 }
@@ -57,7 +56,8 @@ function deleteMessage(int $id)
         $exec = $pdoConn->query($req);
 
         if ($exec) {
-            echo "Votre Message à bien était supprimer";
+            echo "L'execution à été effectué";
+            header('Location: index.php?controller=message&action=all');
         }
     }
 }
