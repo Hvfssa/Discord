@@ -4,7 +4,7 @@ $pageTitle = "Formulaire creation de salon";
 ?>
 
 <section class="body_form">
-    <form class="form" method="POST" action="#">
+    <form class="form" method="POST" action="index.php?controller=channel&action=sendAddChannel">
         <!-- "#" A remplacer vers chemin du controller -->
         <h1>Creation de votre salon</h1>
         <span class="input-span">
