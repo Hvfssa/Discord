@@ -13,7 +13,7 @@ $pageTitle = "Formulaire d'inscription"; ?>
 
 <section class="body_form">
     <form class="form" method="POST" action="#">
-        // "#" A remplacer vers chemin du controller
+        <!-- "#" A remplacer vers chemin du controller -->
         <h1>Inscription</h1>
         <span class="input-span">
             <label for="pseudo" class="label">Pseudo</label>
@@ -27,8 +27,7 @@ $pageTitle = "Formulaire d'inscription"; ?>
         <span class="span">Vous avez déjà un compte ?
             <a href="formLogin.php">Connectez-vous</a>
         </span>
-        <a href="#">Retour sur la page d'accueil</a>
-        //Remplacer "#" par chemin vers accueil
+        <a href="../accueil.php">Retour sur la page d'accueil</a>
     </form>
 </section>
 <?php

@@ -117,7 +117,29 @@ main {
     }
 }
 }
-
+.all{
+   background-color: $colorGray;
+    h2{
+        color: white;
+        margin-top: 5rem;
+        font-family: 'Josefin Sans';
+        text-align: center;
+    }
+    .blocJoinCreate{
+        font-family: 'Josefin Sans';
+        color: white;
+        margin-top: 10rem;
+        display: flex;
+        justify-content: space-around;
+        p{
+            font-family: $fontJosefin;
+        }
+        p:hover{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+}
 // partie vincent
 $background-image: url('./../../src/img/fondConInsc.jpg');
 
