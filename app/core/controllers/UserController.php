@@ -1,4 +1,4 @@
-<form action="/?controller=User&action=login" method="post">
+<form action="/?controller=User&action=passwordRecovery" method="post">
     <input type="text" name="pseudo" id="a">
     <input type="password" name="mdp" id="b">
     <input type="password" name="mdpVerify" id="c">
@@ -13,8 +13,7 @@ require("./vendor/wixel/gump/gump.class.php");
 
 function showRegisterForm()
 {
-    // require("./app/core/views/formRegister.php");
-    require("./app/core/views/formRegister.php");
+    require("./app/core/views/users/register.php");
 }
 
 function register()
@@ -57,22 +56,22 @@ function register()
     $valid_data = $gump->run($_POST);
 
     if ($gump->errors()) {
-        var_dump($gump->get_readable_errors());
+        $error = $gump->get_readable_errors();
     } else {
         if (isset($_POST)) {
             $pseudo = $valid_data["pseudo"];
             $alreadyExists = getByOneUser($pseudo);
-            var_dump($alreadyExists);
 
             if ($alreadyExists === false) {
-
-
                 $mdp = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
-                $result = addUser($pseudo, $mdp);
+                addUser($pseudo, $mdp);
+
+
             } else {
-                var_dump("Le nom d'utilisateur est déja utilisé");
+                $error = "Le nom d'utilisateur est déja utilisé";
             }
         }
+        return $error;
     }
 }
 
@@ -81,7 +80,6 @@ function showLoginForm()
     require("./app/core/views/formLogin.php");
 }
 
-// Azertyuiop1?
 function login()
 {
     require("./app/core/models/UserModel.php");
@@ -106,42 +104,40 @@ function login()
     $valid_data = $connectGump->run($_POST);
 
     if ($connectGump->errors()) {
-        // var_dump($connectGump->get_readable_errors());
+        $error = $connectGump->get_readable_errors();
         // redirect form
     } else {
-
         $pseudo = $valid_data["pseudo"];
-        $password = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
 
         $alreadyExists = getByOneUser($pseudo);
-        // var_dump($alreadyExists['passwd']);
-        // var_dump($password);
 
         $verify = password_verify($valid_data["mdp"], $alreadyExists['passwd']);
-        var_dump($verify);
 
         if ($alreadyExists != false  && $verify === true) {
-            // var_dump($valid_data["pseudo"]);
-            // var_dump(password_hash($valid_data["mdp"], PASSWORD_ARGON2I));
-            var_dump('ok');
-
 
             // creation session
             // redirection page
 
+            setcookie("isConnected", true, time()+30);
+            $jsonUserInfo = json_encode(["id" => $alreadyExists["userId"], "pseudo" => $alreadyExists["pseudo"]]);
+            setcookie("User", $jsonUserInfo, time()+40);
+            
+            header("Location: ");
         } else {
-            var_dump("Le nom d'utilisateur ou le mot de passe n'est pas correcte");
+            $error = "Le nom d'utilisateur ou le mot de passe n'est pas correcte";
         }
+
+        return $error;
     }
-
-
 }
 
 
 function signOut()
 {
-    // destruction des sessions ou cookies
-    // redirection page de connexion
+    setcookie("isConnected", "", time()-3600);
+    setcookie("User", "", time()-3600);
+    
+    header("Location : index.php?controller=User&action=showRegisterForm");
 }
 
 function showDataUpdateForm(){
@@ -152,6 +148,49 @@ function showPasswordRecoveryForm(){
     require("./app/core/views/PasswordRecovery.php");
 }
 
+function passwordRecovery(){
+    require("./app/core/models/UserModel.php");
+
+    $gump = new GUMP();
+
+    $gump->validation_rules([
+        'pseudo' => 'required'
+    ]);
+
+    $gump->set_fields_error_messages([
+        'pseudo' => [
+            'required' => 'Veuillez remplir le champ pseudo.'
+        ]
+    ]);
+
+    $gump->filter_rules([
+        'pseudo' => 'trim|htmlencode'
+    ]);
+
+    $valid_data = $gump->run($_POST);
+
+   if ($gump->errors()) {
+    $error = $gump->get_readable_errors();
+   }
+   else{
+       $exists = getByOneUser($valid_data["pseudo"]);
+    
+       if ($exists != false) {
+
+
+        
+
+       }
+       else{
+           $error = "Le pseudo n'est pas valide";
+           var_dump($error);
+       }
+
+   }
+
+
+}
+
 function showPassowrdUpdateForm()
 {
     require("./app/core/models/UserModel.php");
@@ -159,8 +198,6 @@ function showPassowrdUpdateForm()
     getByIdUser($id);
 
     require("./app/core/views/UpdatePass.php"); 
-
-    // appelle fonction modification
 }
 
 function modify()
