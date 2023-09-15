@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= $pageContent; ?>">
-    <link rel="stylesheet" href="../../public/css/sass/style.css">
+    <link rel="stylesheet" href="./app/public/css/sass/style.css">
 
     <title>
         <?= $pageTitle; ?>
@@ -17,7 +17,7 @@
         <nav>
             <p>#général</p>
             <ul>
-                <li><a href="./users/formLogin.php">Se Connecter</a></li>
+                <li><a href="index.php?controller=user&action=showLoginForm">Se Connecter</a></li>
                 <li><a href="./users/formRegister.php">S'inscrire</a></li>
                 <!-- Config si on se connecte -->
                 <li><a href="#">Se Deconnecter</a></li>
