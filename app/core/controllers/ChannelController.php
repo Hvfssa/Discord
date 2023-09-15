@@ -59,7 +59,7 @@ function sendAddChannel() {
                 addChannel($name, $desc, $pic);
                 header('Location: ./app/core/views/channels/all.php');
             } else {
-                echo $verif->get_readable_errors(); // ['Field <span class="gump-field">Somefield</span> is required.']
+                var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
             }
     } else {
         header('Location: ./app/core/views/main/error.php');
@@ -125,7 +125,7 @@ function sendUpdateChannel() {
                 updateChannel($id, $name, $desc, $pic);
                 header('Location: ./app/core/views/channels/all.php');
             } else {
-                echo $verif->get_readable_errors(); // ['Field <span class="gump-field">Somefield</span> is required.']
+                var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
             }
     } else {
         header('Location: ./app/core/views/main/error.php');
@@ -162,7 +162,7 @@ function sendDeleteChannel() {
                 deleteChannel($id);
                 header('Location: ./app/core/views/channels/all.php');
             } else {
-                echo $verif->get_readable_errors(); // ['Field <span class="gump-field">Somefield</span> is required.']
+                var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
             }
     } else {
         header('Location: ./app/core/views/main/error.php');
