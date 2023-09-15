@@ -5,15 +5,15 @@ function getAllMessages()
     require_once('dbConnect.php');
 
     if ($pdoConn) {
-        $req = "SELECT m.content, m.createdAt, u.pseudo ,u.pfpic FROM messages AS m INNER JOIN users AS u on m.userId = u.userId";
+        $req = "SELECT * FROM messages";
         $exec = $pdoConn->query($req);
 
         if($exec){
-            $results = $exec->fetchAll(PDO::FETCH_ASSOC);
+            $messages = $exec->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
-    return $results;
+    return $messages;
 }
 
 function getByIdMessage(int $id)
@@ -38,7 +38,7 @@ function addMessage(string $content)
     require_once('dbConnect.php');
 
     if ($pdoConn) {
-        $req = "INSERT INTO messages (content, createdAt, updatedAt) VALUES ('$content','$','$')";
+        $req = "INSERT INTO messages (content) VALUES ('$content')";
         $exec = $pdoConne->query($req);
 
         if ($exec) {
