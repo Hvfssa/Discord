@@ -7,7 +7,9 @@
     <meta name="description" content="Projet de groupe sur discord">
     <link rel="stylesheet" href="./app/public/css/style.css">
 
-    <title>Discord</title>
+    <title>
+        <?= $pageTitle; ?>
+    </title>
 </head>
 
 <body class="AcceuilPages">
