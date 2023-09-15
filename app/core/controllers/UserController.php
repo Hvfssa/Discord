@@ -1,7 +1,16 @@
+<?php
+
+session_start();
+$userId = $_SESSION["userID"];
+var_dump($userId);
+
+?>
+
 <form action="/?controller=User&action=passwordRecovery" method="post">
     <input type="text" name="pseudo" id="a">
-    <input type="password" name="mdp" id="b">
-    <input type="password" name="mdpVerify" id="c">
+    <input type="hidden" name="" value="">
+    <input type="password" name="newMdp" id="b">
+    <input type="password" name="newMdpConfirm" id="c">
     <input type="submit" value="envoyer">
 
 </form>
@@ -13,7 +22,7 @@ require("./vendor/wixel/gump/gump.class.php");
 
 function showRegisterForm()
 {
-    require("./app/core/views/users/register.php");
+    require("./app/core/views/register.php");
 }
 
 function register()
@@ -77,7 +86,7 @@ function register()
 
 function showLoginForm()
 {
-    require("./app/core/views/formLogin.php");
+    require("./app/core/views/login.php");
 }
 
 function login()
@@ -177,9 +186,11 @@ function passwordRecovery(){
     
        if ($exists != false) {
 
+        session_start();
+        $_SESSION["userID"] = $exists["userId"];
+        session_destroy();
 
-        
-
+        header("Location: index.php?controller=User&action=showPassowrdUpdateForm");
        }
        else{
            $error = "Le pseudo n'est pas valide";
@@ -187,8 +198,6 @@ function passwordRecovery(){
        }
 
    }
-
-
 }
 
 function showPassowrdUpdateForm()
@@ -198,6 +207,48 @@ function showPassowrdUpdateForm()
     getByIdUser($id);
 
     require("./app/core/views/UpdatePass.php"); 
+}
+
+function updatePassword(){
+    require("./app/core/models/UserModel.php");
+
+    $regex = "/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])(?=.*?[0-9])/";
+
+    $gump = new GUMP();
+
+    $gump->validation_rules([
+        'newMdp' => 'required|max_len,255|min_len,8|regex,'.$regex,
+        'newMdpConfirm' => 'required|max_len,255|equalsfield,mdp'
+    ]);
+
+    $gump->set_fields_error_messages([
+        'newMdp' => [
+            'required' => 'Veuillez remplir ce champ.',
+            'min_len' => 'Le mot de passe doit faire au moins 8 charactères'
+        ],
+        'newMdpConfirm' => [
+            'required' => 'Veuillez remplir ce champ',
+            'equalsfield,mdp' => 'Les mots de passe doivent etre identiques.'
+        ]
+
+    ]);
+
+    $gump->filter_rules([
+        'newMdp' => 'trim|htmlencode',
+        'newMdpConfirm' => 'trim|htmlencode',
+    ]);
+
+    $valid_data = $gump->run($_POST);
+
+    if ($gump->errors()) {
+        $error = $gump->get_readable_errors();
+    } else {
+        $mdp = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
+
+        // updatePasswordById();
+
+    }
+
 }
 
 function modify()
