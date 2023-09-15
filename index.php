@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,3 +26,10 @@
     </main>
 </body>
 </html>
+=======
+<?php 
+    $pageTitle = "Appli à améliorer selon le design pattern MVC";
+    require_once("./app/core/views/header.php");
+    require_once("./app/core/controllers/router.php");
+?>
+>>>>>>> 1ae185cb27e83872695d2c013c80228ea3caa00b

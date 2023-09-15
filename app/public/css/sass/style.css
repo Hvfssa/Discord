@@ -1,34 +1,17 @@
-header {
-  background-color: #424549;
-  width: 100%;
-}
-header nav {
-  max-width: 1500px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: auto;
-}
-header nav p {
-  color: white;
-}
-header nav ul {
-  display: flex;
-  list-style: none;
-}
-header nav ul li a {
+/* Error: expected "{".
+ *    ,
+ * 33 |         max-width: 1500px;
+ *    |                          ^
+ *    '
+ *   style.scss 33:26  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
-  padding: 2rem;
-  text-decoration: none;
-  color: white;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 33 \2502          max-width: 1500px;\d\a    \2502                           ^\a    \2575 \a   style.scss 33:26  root stylesheet';
 }
-header nav ul li a:hover {
-  background-color: #7289da;
-  color: #424549;
-}
-
-body {
-  background-color: #424549;
-}
-
-/*# sourceMappingURL=style.css.map */

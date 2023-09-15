@@ -1,12 +1,41 @@
+<<<<<<< HEAD
 header{
     background-color: #424549;
     width: 100%;
     nav{
+=======
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap');
+$colorWhite: white;
+$blueColor : #7289da;
+$hover-color : #36457c;
+$colorGray: #424549;
+$colorBlack : #36393E;
+$fontJosefin : 'Josefin Sans';
+
+// Partie Valentin
+.AcceuilPages {
+    background-color: $colorBlack;
+}
+
+header {
+    background-color: $colorGray;
+    width: 100%;
+
+    nav {
+>>>>>>> 1ae185cb27e83872695d2c013c80228ea3caa00b
         max-width: 1500px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: auto;
+<<<<<<< HEAD
         p{
          color: white;
         }
@@ -23,11 +52,218 @@ header{
                 a:hover{
                     background-color: #7289da;
                     color: #424549;
+=======
+
+        p {
+            color: $colorWhite;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+
+            li {
+                a {
+                    display: block;
+                    padding: 2rem;
+                    text-decoration: none;
+                    color: $colorWhite;
+                    font-family: $fontJosefin ;
+                }
+
+                a:hover {
+                    background-color: $blueColor;
+                    color: $colorGray;
+>>>>>>> 1ae185cb27e83872695d2c013c80228ea3caa00b
                 }
             }
         }
     }
 }
+<<<<<<< HEAD
 body{
   background-color: #424549;
+=======
+
+main {
+    .discordPicuture {
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 5rem;
+            margin-top: 5rem;
+        }
+    }
+
+    .welcomeDiscord {
+        text-align: center;
+        color: $colorWhite;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 15rem;
+        font-family: $fontJosefin; 
+        a{
+            color: $blueColor;
+        }
+    }
+
+}
+.salonPage{
+  .messageSalon{
+    top: 50%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+    .formMess {
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        left: 50%;
+        
+        .champ {
+            position: relative;
+
+            .chatPost {
+                border-radius: 0 10px 10px 0;
+                position: absolute;
+                right: 0;
+            height: 92%;
+            background-color: #424549;
+            color: white;
+            width: 2rem;
+            cursor: pointer;
+        }
+        
+        textarea {
+            border-radius: 10px;
+            background-color: $blueColor;
+            padding: 0.3rem;
+            width: 25rem;
+        }
+    }
+}
+}
+.all{
+   background-color: $colorGray;
+    h2{
+        color: white;
+        margin-top: 5rem;
+        font-family: 'Josefin Sans';
+        text-align: center;
+    }
+    .blocJoinCreate{
+        font-family: 'Josefin Sans';
+        color: white;
+        margin-top: 10rem;
+        display: flex;
+        justify-content: space-around;
+        p{
+            font-family: $fontJosefin;
+        }
+        p:hover{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+}
+// partie vincent
+$background-image: url('./../../src/img/fondConInsc.jpg');
+
+
+.body_form {
+    display: flex;
+    justify-content: center;
+    background-image: $background-image;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .625rem;
+    margin: auto;
+    padding: 1.875rem;
+    width: 70%;
+    border-radius: 5px;
+    background-color: $colorGray;
+}
+
+form h1 {
+    color: $colorWhite;
+}
+
+.form .input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $colorWhite;
+    background-color: $colorBlack;
+    outline: 2px solid $blueColor;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    outline: 2px solid $blueColor;
+    background-color: $hover-color;
+}
+
+.label {
+    align-self: flex-start;
+    color: $colorWhite;
+    font-weight: 600;
+}
+
+form .submit {
+    padding: 1rem 0.75rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: $blueColor;
+    color: $colorWhite;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+form .submit:hover {
+    background-color: $hover-color;
+    color: $colorWhite;
+}
+
+.span {
+    text-decoration: none;
+    color: $colorWhite;
+}
+
+.span a {
+    color: $blueColor;
+}
+.white{
+  color: $colorWhite;
+>>>>>>> 1ae185cb27e83872695d2c013c80228ea3caa00b
 }
