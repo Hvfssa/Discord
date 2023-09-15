@@ -1,7 +1,6 @@
 <?php
 $pageContent = "Creez votre salon";
 $pageTitle = "Formulaire creation de salon";
-require_once("../header.php");
 ?>
 
 <section class="body_form">
@@ -19,6 +18,3 @@ require_once("../header.php");
         <a href="../accueil.php">Retour sur la page d'accueil</a>
     </form>
 </section>
-<?php
-require_once('../footer.php');
-?>

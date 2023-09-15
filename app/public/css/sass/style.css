@@ -234,7 +234,6 @@ form .submit:hover {
   color: white;
 }
 
-<<<<<<< HEAD
 .positionChannel {
   display: flex;
   align-items: center;
@@ -258,6 +257,3 @@ aside span {
 .positionChannel:hover {
   transform: scale(1.1);
 }/*# sourceMappingURL=style.css.map */
-=======
-/*# sourceMappingURL=style.css.map */
->>>>>>> b2f260545999c3f1975348cf41eff6879f5cc154
