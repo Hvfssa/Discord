@@ -95,28 +95,47 @@ main .welcomeDiscord a {
   width: 25rem;
 }
 
-.all {
-  background-color: #424549;
+.contnair {
+  height: 100vh;
+  background-image: url("./../../src/img/fondConInsc.jpg");
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.all h2 {
+.contnair .all {
+  background: #424549;
+  height: 50vh;
+  margin: auto;
+  width: 70%;
+  border: solid 2px #424549;
+  box-shadow: -1px 3px 10px 10px #7289da;
+}
+.contnair .all h2 {
   color: white;
-  margin-top: 5rem;
+  padding-top: 5rem;
   font-family: "Josefin Sans";
   text-align: center;
 }
-.all .blocJoinCreate {
+.contnair .all .blocJoinCreate {
   font-family: "Josefin Sans";
   color: white;
   margin-top: 10rem;
   display: flex;
   justify-content: space-around;
 }
-.all .blocJoinCreate p {
+.contnair .all .blocJoinCreate a {
   font-family: "Josefin Sans";
+  transition: 0.5s;
+  padding: 2rem;
+  color: white;
+  text-decoration: none;
 }
-.all .blocJoinCreate p:hover {
+.contnair .all .blocJoinCreate a:hover {
   font-size: 2rem;
   cursor: pointer;
+  background-color: #7289da;
 }
 
 .body_form {
@@ -209,10 +228,8 @@ form .submit:hover {
   color: #7289da;
 }
 
-<<<<<<< HEAD
-/*# sourceMappingURL=style.css.map */
-=======
 .white {
   color: white;
-}/*# sourceMappingURL=style.css.map */
->>>>>>> a084cbdb0eece02c6717892d67cc8ff5186a82f1
+}
+
+/*# sourceMappingURL=style.css.map */

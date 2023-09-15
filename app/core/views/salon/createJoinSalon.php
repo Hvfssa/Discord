@@ -7,16 +7,32 @@
     <link rel="stylesheet" href="../../../public/css/sass/style.css">
     <title>Document</title>
 </head>
-<section class="all">
+<header>
+        <nav>
+            <p>#général</p>
+            <ul>
+                <li><a href="./users/formLogin.php">Se Connecter</a></li>
+                <li><a href="./users/formRegister.php">S'inscrire</a></li>
+                <!-- Config si on se connecte -->
+                <li><a href="#">Se Deconnecter</a></li>
+                <li><a href="#">Votre Profil</a></li>
+                <li><a href="./salon.php">Salon</a></li>
+            </ul>
+        </nav>
+    </header>
+<section class="contnair">
 
-    <h2>Que voulez vous faire ?</h2>
-    <div class="blocJoinCreate"> 
-        <div class="choiceCreate">
-            <p>Créer un salon</p>
+    <section class="all">
+        
+        <h2>Que voulez vous faire ?</h2>
+        <div class="blocJoinCreate"> 
+            <div class="choiceCreate">
+                <a href="./formSalon.php">Créer un salon</a>
+            </div>
+            <div class="choiceJoin">
+                <a href="./salonDispo.php">Rejoindre un salon</a> 
+            </div>
         </div>
-        <div class="choiceJoin">
-            <p>Rejoindre un salon</p> 
-        </div>
-    </div>
+    </section>
 </section>
-</html>
+    </html>
