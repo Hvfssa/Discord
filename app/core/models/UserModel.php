@@ -51,3 +51,13 @@ function updateUser(int $id, string $pseudo, string $password, string $picture)
 function deleteUser(int $id)
 {
 }
+
+function updatePasswordById($id, $password){
+    require('./app/core/models/dbConnect.php');
+
+    $query = "UPDATE users SET passwd = '$password' WHERE userId= $id";
+
+    $result = $pdoConn->query($query);
+
+    var_dump($result);
+}

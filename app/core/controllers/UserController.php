@@ -1,14 +1,6 @@
-<?php
-
-session_start();
-$userId = $_SESSION["userID"];
-var_dump($userId);
-
-?>
-
-<form action="/?controller=User&action=passwordRecovery" method="post">
-    <input type="text" name="pseudo" id="a">
-    <input type="hidden" name="" value="">
+<form action="/?controller=User&action=updatePassword" method="post">
+    <!-- <input type="text" name="pseudo" id="a"> -->
+    <input type="number" name="id" value="">
     <input type="password" name="newMdp" id="b">
     <input type="password" name="newMdpConfirm" id="c">
     <input type="submit" value="envoyer">
@@ -218,7 +210,7 @@ function updatePassword(){
 
     $gump->validation_rules([
         'newMdp' => 'required|max_len,255|min_len,8|regex,'.$regex,
-        'newMdpConfirm' => 'required|max_len,255|equalsfield,mdp'
+        'newMdpConfirm' => 'required|max_len,255|equalsfield,newMdp'
     ]);
 
     $gump->set_fields_error_messages([
@@ -228,30 +220,31 @@ function updatePassword(){
         ],
         'newMdpConfirm' => [
             'required' => 'Veuillez remplir ce champ',
-            'equalsfield,mdp' => 'Les mots de passe doivent etre identiques.'
+            'equalsfield,newMdp' => 'Les mots de passe doivent etre identiques.'
         ]
 
     ]);
+    // Azertyuiop1?
 
     $gump->filter_rules([
         'newMdp' => 'trim|htmlencode',
-        'newMdpConfirm' => 'trim|htmlencode',
+        'newMdpConfirm' => 'trim|htmlencode'
     ]);
 
     $valid_data = $gump->run($_POST);
 
+    var_dump($gump->get_readable_errors());
     if ($gump->errors()) {
-        $error = $gump->get_readable_errors();
     } else {
-        $mdp = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
+        $mdp = password_hash($valid_data["newMdp"], PASSWORD_ARGON2I);
 
-        // updatePasswordById();
+        updatePasswordById($_POST["id"], $mdp);
 
     }
 
 }
 
-function modify()
+function modifyUserInfo()
 {
     require("./app/core/models/UserModel.php");
 
