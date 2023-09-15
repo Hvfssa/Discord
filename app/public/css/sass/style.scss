@@ -202,5 +202,29 @@ form .submit:hover {
     color: $blueColor;
 }
 .white{
+    display: flex;
+    justify-content: center;
   color: $colorWhite;
+
 }
+.positionChannel{
+display: flex;
+align-items: center;
+transition: transform 0.2s
+}
+.imgChannel{
+    width: 40px;
+    height: 40px;
+}
+aside{
+    width: 25%;
+    border-right: 2px solid cornflowerblue;
+    span{
+        display: flex;
+        color: $colorWhite;
+        }
+}
+.positionChannel:hover {
+   transform: scale(1.1);
+}
+

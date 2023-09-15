@@ -177,5 +177,31 @@ form .submit:hover {
 }
 
 .white {
+  display: flex;
+  justify-content: center;
   color: white;
+}
+
+.positionChannel {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.imgChannel {
+  width: 40px;
+  height: 40px;
+}
+
+aside {
+  width: 25%;
+  border-right: 2px solid cornflowerblue;
+}
+aside span {
+  display: flex;
+  color: white;
+}
+
+.positionChannel:hover {
+  transform: scale(1.1);
 }/*# sourceMappingURL=style.css.map */
