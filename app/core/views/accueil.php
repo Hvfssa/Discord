@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,14 @@
 <body class="AcceuilPages">
     <header>
         <nav>
-            <p>#général</p>
+            <img src="../../public/src/img/favicon.png" alt="Logo de discord sur le header">
             <ul>
                 <li><a href="./users/formLogin.php">Se Connecter</a></li>
                 <li><a href="./users/formRegister.php">S'inscrire</a></li>
                 <!-- Config si on se connecte -->
                 <li><a href="#">Se Deconnecter</a></li>
                 <li><a href="#">Votre Profil</a></li>
+                <li><a href="./salon/createJoinSalon.php">Salon</a></li>
             </ul>
         </nav>
     </header>
@@ -31,12 +32,7 @@
         <div class="paragInsc">
             <p class="welcomeDiscord">Vous n'avez pas de compte ? Vous pouvez vous inscrire <a href="./users/formRegister.php"> Maitnenant</a></p>
         </div>  
-        <form class="formMess" action="#" method="POST">
-            <div class="champ">
-                <textarea name="mess" id="formAcceuil" maxlength="255" placeholder="Envoyer un message"></textarea>
-                <input class="chatPost" type="submit" value=">">
-            </div>
-        </form>
+       
     </main>
     <footer>
 

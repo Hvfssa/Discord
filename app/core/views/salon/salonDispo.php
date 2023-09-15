@@ -3,6 +3,8 @@ $pageContent = "Choisissez un salon pour les rejoindre vos amis";
 $pageTitle = "Les salons";
 require_once("../header.php");
 ?>
+<<<<<<< HEAD
+=======
 <main>
     <h1 class="white">Salons disponnibles</h1>
     <section>
@@ -20,3 +22,4 @@ require_once("../header.php");
 
 
 </main>
+>>>>>>> a084cbdb0eece02c6717892d67cc8ff5186a82f1

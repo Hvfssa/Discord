@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap');
 $colorWhite: white;
 $blueColor : #7289da;
@@ -12,6 +13,7 @@ $hover-color : #36457c;
 $colorGray: #424549;
 $colorBlack : #36393E;
 $fontJosefin : 'Josefin Sans';
+$background-image: url('./../../src/img/fondConInsc.jpg');
 
 // Partie Valentin
 .AcceuilPages {
@@ -29,8 +31,8 @@ header {
         justify-content: space-between;
         margin: auto;
 
-        p {
-            color: $colorWhite;
+        img {
+           width: 3rem;  
         }
 
         ul {
@@ -72,10 +74,23 @@ main {
         font-weight: bold;
         text-transform: uppercase;
         margin-top: 15rem;
-        font-family: $fontJosefin; 
-        a{
+        font-family: $fontJosefin;
+
+        a {
             color: $blueColor;
         }
+    }
+
+}
+
+.salonPage {
+    .messageSalon {
+        top: 50%;
+        text-align: center;
+        color: $colorWhite;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 50%);
     }
 
     .formMess {
@@ -92,8 +107,8 @@ main {
                 position: absolute;
                 right: 0;
                 height: 92%;
-                background-color: #424549;
-                color: white;
+                background-color: $colorGray;
+                color: $colorWhite;
                 width: 2rem;
                 cursor: pointer;
             }
@@ -103,6 +118,53 @@ main {
                 background-color: $blueColor;
                 padding: 0.3rem;
                 width: 25rem;
+            }
+        }
+    }
+}
+
+.contnair {
+    height: 100vh;
+    background-image: $background-image;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .all {
+        background: $colorGray;
+        height: 50vh;
+        margin: auto;
+        width: 70%;
+        border: solid 2px $colorGray;
+        box-shadow: -1px 3px 10px 10px $blueColor;
+        h2 {
+            color: white;
+            padding-top: 5rem;
+            font-family: 'Josefin Sans';
+            text-align: center;
+        }
+
+        .blocJoinCreate {
+            font-family: 'Josefin Sans';
+            color: white;
+            margin-top: 10rem;
+            display: flex;
+            justify-content: space-around;
+
+            a {
+                font-family: $fontJosefin;
+                transition: 0.5s;
+                padding: 2rem;
+                color: $colorWhite;
+                text-decoration: none;
+            }
+
+            a:hover {
+                font-size: 2rem;
+                cursor: pointer;
+                background-color: $blueColor;
             }
         }
     }
@@ -201,6 +263,7 @@ form .submit:hover {
 .span a {
     color: $blueColor;
 }
+<<<<<<< HEAD
 .white{
     display: flex;
     justify-content: center;
@@ -228,3 +291,9 @@ aside{
    transform: scale(1.1);
 }
 
+=======
+
+.white {
+    color: $colorWhite;
+}
+>>>>>>> b2f260545999c3f1975348cf41eff6879f5cc154
