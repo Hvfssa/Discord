@@ -1,11 +1,11 @@
-<form action="/?controller=User&action=register" method="post">
+<form action="/?controller=User&action=login" method="post">
     <input type="text" name="pseudo" id="a">
     <input type="password" name="mdp" id="b">
     <input type="password" name="mdpVerify" id="c">
     <input type="submit" value="envoyer">
 
 </form>
-
+Azertyuiop1?
 
 <?php
 
@@ -62,27 +62,19 @@ function register()
 
     $valid_data = $gump->run($_POST);
 
-    // var_dump($valid_data["pseudo"]);
-
     if ($gump->errors()) {
         var_dump($gump->get_readable_errors());
     } else {
         if (isset($_POST)) {
             $pseudo = $valid_data["pseudo"];
-            $alreadyExists = getByOneUser($valid_data["pseudo"]);
+            $alreadyExists = getByOneUser($pseudo);
+            var_dump($alreadyExists);
 
-            if ($alreadyExists["COUNT(*)"] === 0) {
+            if ($alreadyExists === false) {
 
 
                 $mdp = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
-
-
                 $result = addUser($pseudo, $mdp);
-                if ($result) {
-                    var_dump('redirect');
-                } else {
-                    // var_dump("erreur");
-                }
             } else {
                 var_dump("Le nom d'utilisateur est déja utilisé");
             }
@@ -95,7 +87,8 @@ function showLoginForm()
     require("./app/core/views/formLogin.php");
 }
 
-function logIn()
+// Azertyuiop1?
+function login()
 {
     require("./app/core/models/UserModel.php");
     $connectGump = new GUMP();
@@ -111,38 +104,43 @@ function logIn()
         'mdp' => ['required' => 'Veuillez remplir ce champ.'],
     ]);
 
-    $gump->filter_rules([
+    $connectGump->filter_rules([
         'pseudo' => 'trim|htmlencode',
         'mdp' => 'trim|htmlencode',
     ]);
 
-    $valid_data = $gump->run($_POST);
+    $valid_data = $connectGump->run($_POST);
 
-    $userExists = getByOneUser($pseudo);
-
-
-    if ($gump->errors()) {
-        var_dump($gump->get_readable_errors());
+    if ($connectGump->errors()) {
+        // var_dump($connectGump->get_readable_errors());
         // redirect form
     } else {
-        if (getByOneUser($valid_data["pseudo"]) === 1 && getByOneUser($valid_data["pseudo"])['mdp'] === $valid_data["mdp"]) {
-            var_dump($valid_data["pseudo"]);
-            var_dump(password_hash($valid_data["mdp"], PASSWORD_ARGON2I));
 
-            addUser($pseudo, $password, $picture);
+        $pseudo = $valid_data["pseudo"];
+        $password = password_hash($valid_data["mdp"], PASSWORD_ARGON2I);
+
+        $alreadyExists = getByOneUser($pseudo);
+        // var_dump($alreadyExists['passwd']);
+        // var_dump($password);
+
+        $verify = password_verify($valid_data["mdp"], $alreadyExists['passwd']);
+        var_dump($verify);
+
+        if ($alreadyExists != false  && $verify === true) {
+            // var_dump($valid_data["pseudo"]);
+            // var_dump(password_hash($valid_data["mdp"], PASSWORD_ARGON2I));
+            var_dump('ok');
+
 
             // creation session
             // redirection page
 
         } else {
-            var_dump("Le nom d'utilisateur est déja utilisé");
+            var_dump("Le nom d'utilisateur ou le mot de passe n'est pas correcte");
         }
     }
 
 
-    // verification et création de session/ cookie
-
-    // redirection ou message d'erreur car l'utilisateur existe déja
 }
 
 
