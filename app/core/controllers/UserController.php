@@ -5,17 +5,11 @@
     <input type="submit" value="envoyer">
 
 </form>
-Azertyuiop1?
 
 <?php
 
-// require("gump.class.php");
+
 require("./vendor/wixel/gump/gump.class.php");
-
-
-// $_POST['pseudo'] = 'Niche';
-// $_POST['mdp'] = 'Azertyuiop1?';
-// var_dump($_POST);
 
 function showRegisterForm()
 {
@@ -150,23 +144,23 @@ function signOut()
     // redirection page de connexion
 }
 
+function showDataUpdateForm(){
+    require("./app/core/views/formUserUpdate.php");
+}
 
-function showUpdateForm()
+function showPasswordRecoveryForm(){
+    require("./app/core/views/PasswordRecovery.php");
+}
+
+function showPassowrdUpdateForm()
 {
     require("./app/core/models/UserModel.php");
 
     getByIdUser($id);
 
-    require("./app/core/views/formRegister.php");
-
-    // require modele user
-
-    // select des données de l'utilisateur
-
-    // require view formulaire de mise a jour utilisateur 
+    require("./app/core/views/UpdatePass.php"); 
 
     // appelle fonction modification
-
 }
 
 function modify()
