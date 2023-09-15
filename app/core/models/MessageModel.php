@@ -1,42 +1,63 @@
 <?php
 
-function getAllMessages(){
+function getAllMessages()
+{
     require_once('dbConnect.php');
-    $req = "SELECT m.content, m.createdAt, m.updatedAt, u.pseudo ,u.pfpic FROM messages AS m INNER JOIN users AS u on m.userId = u.userId";
-    $exec = $pdoConn->query($req)->fetchAll(PDO::FETCH_ASSOC);
-    return $exec;
+
+    if ($pdoConn) {
+        $req = "SELECT * FROM messages";
+        $exec = $pdoConn->query($req);
+
+        if($exec){
+            $messages = $exec->fetchAll(PDO::FETCH_ASSOC);
+        }
+    }
+
+    return $messages;
 }
 
-function getByIdMessage(int $id) {
+function getByIdMessage(int $id)
+{
+    require_once('dbConnect.php');
 
-}
+    if ($pdoConn) {
+        $req = "SELECT * FROM messages WHERE messageId=$id";
+        $exec = $pdoConn->query($req);
 
-function getByOneMessage(string $word) {
-
-}
-
-function addMessage(string $content) {
-    require_once('dbConnect');
-
-    if($pdoConn){
-        $req = "INSERT INTO messages (content, createdAt, updatedAt) VALUES ('$content','$','$')";
-        
+        if ($exec) {
+        }
     }
 }
 
-function updateMessage(int $id, string $content) {
+// function getByContentMessage(string $content){
+// }
 
-}
+function addMessage(string $content)
+{
+    require_once('dbConnect.php');
 
-function deleteMessage(int $id) {
-    require_once('dbConnect');
+    if ($pdoConn) {
+        $req = "INSERT INTO messages (content) VALUES ('$content')";
+        $exec = $pdoConne->query($req);
 
-    $req = "DELETE FROM messages WHERE messageId=$id";
-    $exec = $pdoConn->query($req);
-
-    if($exec){
-        echo "Votre Message à bien était supprimer";
+        if ($exec) {
+        } else {
+            echo "Une erreur est survenue, veuillez réessayer ultérieurement";
+        }
     }
 }
 
-//pdoConn est temporaire
+function deleteMessage(int $id)
+{
+    require_once('dbConnect.php');
+
+    if ($pdoConn) {
+        $req = "DELETE FROM messages WHERE messageId=$id";
+        $exec = $pdoConn->query($req);
+
+        if ($exec) {
+            echo "L'execution à été effectué";
+            header('Location: index.php?controller=message&action=all');
+        }
+    }
+}
