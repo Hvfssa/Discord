@@ -20,6 +20,9 @@ function add()
     require_once('./app/core/models/MessageModel.php');
     // Stockage des données issues du formulaire sous forme de variables individuelles 
     $content = $_POST['formAcceuil'];
+    $userId = $_POST['userId'];
+    $channelId = $_POST['channelId'];
+    $dateTime = $_POST['dateTime'];
 
-    addMessage($content);
+    addMessage($content, $userId, $channelId, $dateTime);
 }
