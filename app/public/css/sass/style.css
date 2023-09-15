@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.AcceuilPages {
+  background-color: #36393E;
+}
+
+header {
+  background-color: #424549;
+  width: 100%;
+}
+header nav {
+  max-width: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+header nav p {
+  color: white;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+header nav ul li a {
+  display: block;
+  padding: 2rem;
+  text-decoration: none;
+  color: white;
+  font-family: "Josefin Sans";
+}
+header nav ul li a:hover {
+  background-color: #7289da;
+  color: #424549;
+}
+
+main .discordPicuture {
+  display: flex;
+  justify-content: center;
+}
+main .discordPicuture img {
+  width: 5rem;
+  margin-top: 5rem;
+}
+main .welcomeDiscord {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 15rem;
+  font-family: "Josefin Sans";
+}
+main .welcomeDiscord a {
+  color: #7289da;
+}
+
+.salonPage .messageSalon {
+  top: 50%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.salonPage .formMess {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  left: 50%;
+}
+.salonPage .formMess .champ {
+  position: relative;
+}
+.salonPage .formMess .champ .chatPost {
+  border-radius: 0 10px 10px 0;
+  position: absolute;
+  right: 0;
+  height: 92%;
+  background-color: #424549;
+  color: white;
+  width: 2rem;
+  cursor: pointer;
+}
+.salonPage .formMess .champ textarea {
+  border-radius: 10px;
+  background-color: #7289da;
+  padding: 0.3rem;
+  width: 25rem;
+}
+
+.all {
+  background-color: #424549;
+}
+.all h2 {
+  color: white;
+  margin-top: 5rem;
+  font-family: "Josefin Sans";
+  text-align: center;
+}
+.all .blocJoinCreate {
+  font-family: "Josefin Sans";
+  color: white;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+.all .blocJoinCreate p {
+  font-family: "Josefin Sans";
+}
+.all .blocJoinCreate p:hover {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.body_form {
+  display: flex;
+  justify-content: center;
+  background-image: url("./../../src/img/fondConInsc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  margin: auto;
+  padding: 1.875rem;
+  width: 70%;
+  border-radius: 5px;
+  background-color: #424549;
+}
+
+form h1 {
+  color: white;
+}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form input[type=text],
+form input[type=password] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  background-color: #36393E;
+  outline: 2px solid #7289da;
+}
+
+form input[type=text]:focus,
+form input[type=password]:focus {
+  outline: 2px solid #7289da;
+  background-color: #36457c;
+}
+
+.label {
+  align-self: flex-start;
+  color: white;
+  font-weight: 600;
+}
+
+form .submit {
+  padding: 1rem 0.75rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: #7289da;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+form .submit:hover {
+  background-color: #36457c;
+  color: white;
+}
+
+.span {
+  text-decoration: none;
+  color: white;
+}
+
+.span a {
+  color: #7289da;
+}
+
+<<<<<<< HEAD
+/*# sourceMappingURL=style.css.map */
+=======
+.white {
+  color: white;
+}/*# sourceMappingURL=style.css.map */
+>>>>>>> a084cbdb0eece02c6717892d67cc8ff5186a82f1
