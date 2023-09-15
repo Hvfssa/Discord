@@ -20,7 +20,7 @@ require("./vendor/wixel/gump/gump.class.php");
 function showRegisterForm()
 {
     // require("./app/core/views/formRegister.php");
-    require("./app/core/views/register.php");
+    require("./app/core/views/users/register.php");
 }
 
 function register()

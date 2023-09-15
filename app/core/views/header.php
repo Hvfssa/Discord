@@ -18,7 +18,7 @@
             <p>#général</p>
             <ul>
                 <li><a href="index.php?controller=user&action=showLoginForm">Se Connecter</a></li>
-                <li><a href="./users/formRegister.php">S'inscrire</a></li>
+                <li><a href="index.php?controller=user&action=showRegisterForm">S'inscrire</a></li>
                 <!-- Config si on se connecte -->
                 <li><a href="#">Se Deconnecter</a></li>
                 <li><a href="#">Votre Profil</a></li>
