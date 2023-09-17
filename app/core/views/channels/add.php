@@ -4,7 +4,7 @@ $pageTitle = "Formulaire creation de salon";
 ?>
 
 <section class="body_form">
-    <form class="form" method="POST" action="index.php?controller=channel&action=sendAddChannel">
+    <form class="form" method="POST" action="index.php?controller=channel&action=sendAddChannel" enctype="multipart/form-data">
         <h1>Creation de votre salon</h1>
         <span class="input-span">
             <label for="nom" class="label">Nom de votre serveur</label>
@@ -14,7 +14,6 @@ $pageTitle = "Formulaire creation de salon";
         <span class="input-span">
             <label for="image" class="label">Lien de votre image</label>
             <input type="file" name="image"></span>
-        <!-- Voir pour afficher l'image si temps libre-->
         <input class="submit" type="submit" name="submit" value="Créer"></span>
         <a href="index.php?controller=main&action=homepage">Retour sur la page d'accueil</a>
     </form>

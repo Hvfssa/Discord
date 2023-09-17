@@ -2,8 +2,7 @@
 
 
 function getAllChannels() {
-    require_once('./app/core/models/dbConnect.php');
-    require_once('dbConnect.php');
+    require './app/core/models/dbConnect.php';
     if($pdoConn){
         try {
             $query = 'SELECT * FROM channels';
@@ -18,21 +17,20 @@ function getAllChannels() {
 }
 
 function getByIdChannel(int $id) {
-    require_once('./app/core/models/dbConnect.php');
-    require_once('dbConnect.php');
-
+    require './app/core/models/dbConnect.php';
     if($pdoConn) {
         try {
-            $query = 'SELECT * FROM channels WHERE id = :id';
+            $query = 'SELECT * FROM channels WHERE channelId = :id';
             $prepare = $pdoConn->prepare($query);
             $prepare->bindParam(':id', $id, PDO::PARAM_INT);
-            $results = $prepare->execute();
-            return $results;
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         } catch (PDOException $e) {
             return $e;
         }
     } else {
-        header('Location: ./app/core/views/main/error.php');
+        header('Location: index.php?controller=main&action=error');
     }
 }
 
@@ -57,11 +55,9 @@ function getByOneChannel(string $word) {
 }
 
 function addChannel(string $name, string $description, string $picture) {
-    require_once('./app/core/models/dbConnect.php');
-    require_once('dbConnect.php');
+    require './app/core/models/dbConnect.php';
     if($pdoConn) {
         try {
-            echo "test";
             $query = 'INSERT INTO channels (name, description, picture) VALUES (:name, :desc, :pic)';
             $prepare = $pdoConn->prepare($query);
             $prepare->bindParam(':name', $name, PDO::PARAM_STR);
@@ -82,7 +78,7 @@ function updateChannel(int $id, string $name, string $description, string $pictu
     require_once('dbConnect.php');
     if($pdoConn) {
         try {
-            $query = 'UPDATE channels SET name = :name, description = :desc, picture = :pic WHERE id = :id';
+            $query = 'UPDATE channels SET name = :name, description = :desc, picture = :pic WHERE channelId = :id';
             $prepare = $pdoConn->prepare($query);
             $prepare->bindParam(':id', $id, PDO::PARAM_INT);
             $prepare->bindParam(':name', $name, PDO::PARAM_STR);
@@ -99,11 +95,10 @@ function updateChannel(int $id, string $name, string $description, string $pictu
 }
 
 function deleteChannel(int $id) {
-    require_once('./app/core/models/dbConnect.php');
-    require_once('dbConnect.php');
+    require './app/core/models/dbConnect.php';
     if($pdoConn) {
         try {
-            $query = 'DELETE FROM channels WHERE id = :id';
+            $query = 'DELETE FROM channels WHERE channelId = :id';
             $prepare = $pdoConn->prepare($query);
             $prepare->bindParam(':id', $id, PDO::PARAM_INT);
             $results = $prepare->execute();
@@ -112,6 +107,7 @@ function deleteChannel(int $id) {
             return $e;
         }
     } else {
-        header('Location: ./app/core/views/main/error.php');
+        echo "error in model";
+        // header('Location: ./app/core/views/main/error.php');
     }
 }

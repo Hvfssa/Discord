@@ -5,6 +5,7 @@ require "vendor/wixel/gump/gump.class.php";
 
 function showAllChannels()
 {
+    $channels = getAllChannels();
     require_once './app/core/views/channels/all.php';
 }
 function showAddFormChannel()
@@ -43,18 +44,26 @@ function sendAddChannel()
         $verif->filter_rules([
             'nom' => 'trim|htmlencode|sanitize_string',
             'description' => 'trim|htmlencode|sanitize_string',
-            // voir si le sanitize_string pose pas problème ?
             'image' => 'trim|htmlencode|sanitize_string',
         ]);
-        // var_dump($_POST);
         $is_valid = $verif->run($_POST);
-        var_dump($is_valid);
         if ($verif != null) {
             $name = $_POST['nom'];
             $desc = $_POST['description'];
-            $pic = $_POST['image'];
-            addChannel($name, $desc, $pic);
-            header('Location: index.php?controller=channel&action=showAllChannels');
+            if ($_FILES["image"]["name"] != null) {
+                $_FILES["image"];
+                $nameFile = $_FILES["image"]["name"];
+                $tmpPath = $_FILES["image"]["tmp_name"];
+                $uploadPath = './app/public/src/uploads/';
+                $uploadFile = $uploadPath . basename(md5($nameFile));
+                move_uploaded_file($tmpPath, $uploadFile);
+                $picture = substr($uploadFile, 0);
+                addChannel($name, $desc, $picture);
+                header('Location: index.php?controller=channel&action=showAllChannels');
+            } else {
+                addChannel($name, $desc, './app/public/src/img/discord.svg');
+                header('Location: index.php?controller=channel&action=showAllChannels');
+            }
         } else {
             var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
@@ -64,10 +73,45 @@ function sendAddChannel()
 }
 function showUpdateFormChannel()
 {
-    require_once './app/core/views/channels/update.php';
+    if ($_POST && $_POST["id"]) {
+
+        $verif = new GUMP('fr');
+
+        $verif->validation_rules([
+            'id' => 'required|numeric',
+        ]);
+
+        $verif->set_fields_error_messages([
+            'id' => [
+                'required' => 'l\'id ne peut pas être vide',
+                'numeric' => 'l\'id ne peut contenir que des chiffres',
+            ],
+        ]);
+
+        $verif->filter_rules([
+            'id' => 'trim|sanitize_numbers',
+        ]);
+
+        $is_valid = $verif->run($_POST);
+
+        if ($verif != null) {
+            $id = $_POST['id'];
+            if (getByIdChannel($id) != null) {
+                $channel = getByIdChannel($id);
+                require_once './app/core/views/channels/update.php';
+            } else {
+                header('Location: index.php?controller=main&action=error');
+            }
+        } else {
+            var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
+        }
+    } else {
+        header('Location: index.php?controller=main&action=error');
+    }
 }
 function sendUpdateChannel()
 {
+    var_dump($_POST);
     if ($_POST && $_POST["submit"]) {
 
         $verif = new GUMP('fr');
@@ -132,13 +176,9 @@ function sendUpdateChannel()
 }
 function sendDeleteChannel()
 {
-    if ($_POST && $_POST["submit"]) {
+    if ($_POST && $_POST["id"]) {
 
         $verif = new GUMP('fr');
-
-        $verif->set_field_names([
-            'id' => $_POST['id'],
-        ]);
 
         $verif->validation_rules([
             'id' => 'required|numeric',
@@ -146,8 +186,8 @@ function sendDeleteChannel()
 
         $verif->set_fields_error_messages([
             'id' => [
-                'required' => 'le nom ne peut pas être vide',
-                'numeric' => 'le nom ne peut contenir que des chiffres',
+                'required' => 'l\'id ne peut pas être vide',
+                'numeric' => 'l\'id ne peut contenir que des chiffres',
             ],
         ]);
 
@@ -157,15 +197,23 @@ function sendDeleteChannel()
 
         $is_valid = $verif->run($_POST);
 
-        if ($is_valid === true) {
+        if ($verif != null) {
             $id = $_POST['id'];
-            deleteChannel($id);
-            header('Location: ./app/core/views/channels/all.php');
+            if (getByIdChannel($id) != null) {
+                $channel = getByIdChannel($id);
+                if($channel['0']['picture'] != null && $channel['0']['picture'] != './app/public/src/img/discord.svg'){
+                    unlink($channel['0']['picture']);
+                }
+                deleteChannel($id);
+                header('Location: index.php?controller=channel&action=showAllChannels');
+            } else {
+                header('Location: index.php?controller=main&action=error');
+            }
         } else {
             var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
     } else {
-        header('Location: ./app/core/views/main/error.php');
+        header('Location: index.php?controller=main&action=error');
     }
 }
 function searchChannel()

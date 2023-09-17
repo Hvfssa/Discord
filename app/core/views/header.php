@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <meta name="description" content="Projet de groupe sur discord">
     <link rel="stylesheet" href="./app/public/css/style.css">
+    <script src="https://kit.fontawesome.com/b94fcc4ff9.js" crossorigin="anonymous"></script>
 
     <title>
         <?= $pageTitle; ?>
