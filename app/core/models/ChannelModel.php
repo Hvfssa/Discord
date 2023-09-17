@@ -61,6 +61,7 @@ function addChannel(string $name, string $description, string $picture) {
     require_once('dbConnect.php');
     if($pdoConn) {
         try {
+            echo "test";
             $query = 'INSERT INTO channels (name, description, picture) VALUES (:name, :desc, :pic)';
             $prepare = $pdoConn->prepare($query);
             $prepare->bindParam(':name', $name, PDO::PARAM_STR);
