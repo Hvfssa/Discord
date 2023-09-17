@@ -186,7 +186,7 @@ function passwordRecovery(){
    }
 }
 
-function showPassowrdUpdateForm()
+function showUpdatePassForm()
 {
     require_once("./app/core/models/UserModel.php");
 
