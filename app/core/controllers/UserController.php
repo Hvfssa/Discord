@@ -4,16 +4,16 @@
 // $userId = $_SESSION["userID"];
 // var_dump($userId);
 
-require("./vendor/wixel/gump/gump.class.php");
+require_once("./vendor/wixel/gump/gump.class.php");
 
 function showRegisterForm()
 {
-    require("./app/core/views/register.php");
+    require_once("./app/core/views/users/register.php");
 }
 
 function register()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $regex = "/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])(?=.*?[0-9])/";
 
@@ -72,12 +72,12 @@ function register()
 
 function showLoginForm()
 {
-    require("./app/core/views/login.php");
+    require_once './app/core/views/users/login.php';
 }
 
 function login()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
     $connectGump = new GUMP();
 
     $connectGump->validation_rules([
@@ -136,15 +136,15 @@ function signOut()
 }
 
 function showDataUpdateForm(){
-    require("./app/core/views/formUserUpdate.php");
+    require_once("./app/core/views/users/formUserUpdate.php");
 }
 
 function showPasswordRecoveryForm(){
-    require("./app/core/views/PasswordRecovery.php");
+    require_once("./app/core/views/users/passwordRecoveryForm.php");
 }
 
 function passwordRecovery(){
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $gump = new GUMP();
 
@@ -188,15 +188,15 @@ function passwordRecovery(){
 
 function showPassowrdUpdateForm()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     getByIdUser($id);
 
-    require("./app/core/views/UpdatePass.php"); 
+    require_once("./app/core/views/users/UpdatePass.php"); 
 }
 
 function updatePassword(){
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $regex = "/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])(?=.*?[0-9])/";
 
@@ -239,7 +239,7 @@ function updatePassword(){
 
 function modify()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     // controlle données
 
