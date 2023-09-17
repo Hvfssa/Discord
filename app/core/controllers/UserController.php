@@ -1,22 +1,8 @@
 <?php
 
-session_start();
-$userId = $_SESSION["userID"];
-var_dump($userId);
-
-?>
-
-<form action="/?controller=User&action=passwordRecovery" method="post">
-    <input type="text" name="pseudo" id="a">
-    <input type="hidden" name="" value="">
-    <input type="password" name="newMdp" id="b">
-    <input type="password" name="newMdpConfirm" id="c">
-    <input type="submit" value="envoyer">
-
-</form>
-
-<?php
-
+// session_start();
+// $userId = $_SESSION["userID"];
+// var_dump($userId);
 
 require("./vendor/wixel/gump/gump.class.php");
 
@@ -261,4 +247,9 @@ function modify()
 
     // redirection ou message erreur
     updateUser($id, $pseudo, $mdp, $pfpic);
+}
+
+function showProfil()
+{
+    require_once './app/core/views/users/profil.php';
 }
