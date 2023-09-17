@@ -15,7 +15,8 @@ var_dump($channel);
             <textarea name="description" id="desc" cols="30" rows="10" value="<?= $channel['0']['description'] ?>"></textarea>
         <span class="input-span">
             <label for="image" class="label">Lien de votre image</label>
-            <input type="file" name="image" value="<?= $channel['0']['picture'] ?>"></span>
+            <input type="image" src="<?= $channel['0']['picture'] ?>" alt="image de <?= $channel['0']['name'] ?>">
+            <input type="file" name="image"></span>
         <input class="submit" type="submit" name="submit" value="Modifier"></span>
         <a href="index.php?controller=main&action=homepage">Retour sur la page d'accueil</a>
     </form>

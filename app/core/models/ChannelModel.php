@@ -74,8 +74,7 @@ function addChannel(string $name, string $description, string $picture) {
 }
 
 function updateChannel(int $id, string $name, string $description, string $picture) {
-    require_once('./app/core/models/dbConnect.php');
-    require_once('dbConnect.php');
+    require './app/core/models/dbConnect.php';
     if($pdoConn) {
         try {
             $query = 'UPDATE channels SET name = :name, description = :desc, picture = :pic WHERE channelId = :id';
@@ -90,7 +89,7 @@ function updateChannel(int $id, string $name, string $description, string $pictu
             return $e;
         }
     } else {
-        header('Location: ./app/core/views/main/error.php');
+        header('Location: index.php?controller=main&action=error');
     }
 }
 
@@ -107,7 +106,6 @@ function deleteChannel(int $id) {
             return $e;
         }
     } else {
-        echo "error in model";
-        // header('Location: ./app/core/views/main/error.php');
+        header('Location: index.php?controller=main&action=error');
     }
 }
