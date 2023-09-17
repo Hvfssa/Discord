@@ -1,9 +1,5 @@
 <?php
 
-// session_start();
-// $userId = $_SESSION["userID"];
-// var_dump($userId);
-
 require_once("./vendor/wixel/gump/gump.class.php");
 
 function showRegisterForm()
@@ -125,7 +121,6 @@ function login()
         return $error;
     }
 }
-
 
 function signOut()
 {

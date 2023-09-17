@@ -22,7 +22,6 @@ function sendAddChannel()
         $verif->validation_rules([
             'nom' => 'required|alpha_numeric|max_len,50',
             'description' => 'alpha_numeric|max_len,255',
-            'image' => 'extension,png;jpg;gif|max_len,255',
         ]);
 
         $verif->set_fields_error_messages([
@@ -32,11 +31,10 @@ function sendAddChannel()
                 'max_len' => 'le nom ne doit pas dépasser 50 caractères',
             ],
             'description' => [
-                'alpha_numeric' => 'le nom ne peut contenir que des lettres et des chiffres',
-                'max_len' => 'le nom ne doit pas dépasser 255 caractères',
+                'alpha_numeric' => 'la description ne peut contenir que des lettres et des chiffres',
+                'max_len' => 'la description ne doit pas dépasser 255 caractères',
             ],
             'image' => [
-                'extension' => 'Les extensions acceptées son : .png, .jpg et .gif',
                 'max_len' => 'le chemin de l\'image ne doit pas dépasser 255 caractères',
             ]
         ]);
@@ -47,7 +45,15 @@ function sendAddChannel()
             'image' => 'trim|htmlencode|sanitize_string',
         ]);
         $is_valid = $verif->run($_POST);
-        if ($verif != null) {
+
+        require_once './app/core/functions.php';
+        $error = Validator($_POST);
+
+        if ($verif->errors() || $error != null) {
+            var_dump($verif->get_readable_errors());
+            var_dump($error);
+        } else {
+            var_dump($is_valid);
             $name = $_POST['nom'];
             $desc = $_POST['description'];
             if ($_FILES["image"]["name"] != null) {
@@ -64,8 +70,6 @@ function sendAddChannel()
                 addChannel($name, $desc, './app/public/src/img/discord.svg');
                 header('Location: index.php?controller=channel&action=showAllChannels');
             }
-        } else {
-            var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
     } else {
         header('Location: ./app/core/views/main/error.php');
@@ -120,7 +124,7 @@ function sendUpdateChannel()
             'id' => 'required|numeric',
             'name' => 'required|alpha_numeric|max_len,50',
             'description' => 'alpha_numeric|max_len,255',
-            'image' => 'extension,png;jpg;gif|max_len,255',
+            'image' => 'max_len,255',
         ]);
 
         $verif->set_fields_error_messages([
@@ -138,7 +142,6 @@ function sendUpdateChannel()
                 'max_len' => 'le nom ne doit pas dépasser 255 caractères',
             ],
             'image' => [
-                'extension' => 'Les extensions acceptées son : .png, .jpg et .gif',
                 'max_len' => 'le chemin de l\'image ne doit pas dépasser 255 caractères',
             ]
         ]);
@@ -147,14 +150,18 @@ function sendUpdateChannel()
             'id' => 'trim|sanitize_numbers',
             'name' => 'trim|htmlencode|sanitize_string',
             'description' => 'trim|htmlencode|sanitize_string',
-            // voir si le sanitize_string pose pas problème ?
             'image' => 'trim|htmlencode|sanitize_string',
         ]);
 
         $is_valid = $verif->run($_POST);
 
-        if ($verif != null) {
-            echo "test1";
+        require_once './app/core/functions.php';
+        $error = Validator($_POST);
+
+        if ($verif->errors() || $error != null) {
+            var_dump($verif->get_readable_errors());
+            var_dump($error);
+        } else {
             $id = $_POST['id'];
             $name = $_POST['nom'];
             $desc = $_POST['description'];
@@ -180,12 +187,11 @@ function sendUpdateChannel()
                 updateChannel($id, $name, $desc, $pic);
                 header('Location: index.php?controller=channel&action=showAllChannels');
             }
+
+        }
         } else {
             var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
-    } else {
-        header('Location: index.php?controller=main&action=error');
-    }
 }
 function sendDeleteChannel()
 {
@@ -210,7 +216,9 @@ function sendDeleteChannel()
 
         $is_valid = $verif->run($_POST);
 
-        if ($verif != null) {
+        if ($verif->errors()) {
+            var_dump($verif->get_readable_errors());
+        } else {
             $id = $_POST['id'];
             if (getByIdChannel($id) != null) {
                 $channel = getByIdChannel($id);
@@ -222,8 +230,6 @@ function sendDeleteChannel()
             } else {
                 header('Location: index.php?controller=main&action=error');
             }
-        } else {
-            var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
     } else {
         header('Location: index.php?controller=main&action=error');
