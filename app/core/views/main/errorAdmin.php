@@ -1,0 +1,1 @@
+<h1>VOUS N'ÊTES PAS ADMIN</h1>

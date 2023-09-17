@@ -16,6 +16,6 @@ $pageTitle = "Formulaire creation de salon";
             <input type="file" name="image"></span>
         <!-- Voir pour afficher l'image si temps libre-->
         <input class="submit" type="submit" name="submit" value="Créer"></span>
-        <a href="../accueil.php">Retour sur la page d'accueil</a>
+        <a href="index.php?controller=main&action=homepage">Retour sur la page d'accueil</a>
     </form>
 </section>

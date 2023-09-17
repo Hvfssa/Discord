@@ -5,10 +5,10 @@ function homepage(){
 }
 function error()
 {
-    require_once('./app/core/views/error.php');
+    require_once('./app/core/views/main/error.php');
 }
 
 function notadmin()
 {
-    require_once('./app/core/views/errorAdmin.php');
+    require_once('./app/core/views/main/errorAdmin.php');
 }
