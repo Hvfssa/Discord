@@ -1,33 +1,19 @@
 <?php
 
-session_start();
-$userId = $_SESSION["userID"];
-var_dump($userId);
+// session_start();
+// $userId = $_SESSION["userID"];
+// var_dump($userId);
 
-?>
-
-<form action="/?controller=User&action=passwordRecovery" method="post">
-    <input type="text" name="pseudo" id="a">
-    <input type="hidden" name="" value="">
-    <input type="password" name="newMdp" id="b">
-    <input type="password" name="newMdpConfirm" id="c">
-    <input type="submit" value="envoyer">
-
-</form>
-
-<?php
-
-
-require("./vendor/wixel/gump/gump.class.php");
+require_once("./vendor/wixel/gump/gump.class.php");
 
 function showRegisterForm()
 {
-    require("./app/core/views/register.php");
+    require_once("./app/core/views/users/register.php");
 }
 
 function register()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $regex = "/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])(?=.*?[0-9])/";
 
@@ -86,12 +72,12 @@ function register()
 
 function showLoginForm()
 {
-    require("./app/core/views/login.php");
+    require_once './app/core/views/users/login.php';
 }
 
 function login()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
     $connectGump = new GUMP();
 
     $connectGump->validation_rules([
@@ -150,15 +136,15 @@ function signOut()
 }
 
 function showDataUpdateForm(){
-    require("./app/core/views/formUserUpdate.php");
+    require_once("./app/core/views/users/formUserUpdate.php");
 }
 
 function showPasswordRecoveryForm(){
-    require("./app/core/views/PasswordRecovery.php");
+    require_once("./app/core/views/users/passwordRecoveryForm.php");
 }
 
 function passwordRecovery(){
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $gump = new GUMP();
 
@@ -200,17 +186,17 @@ function passwordRecovery(){
    }
 }
 
-function showPassowrdUpdateForm()
+function showUpdatePassForm()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     getByIdUser($id);
 
-    require("./app/core/views/UpdatePass.php"); 
+    require_once("./app/core/views/users/UpdatePass.php"); 
 }
 
 function updatePassword(){
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     $regex = "/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])(?=.*?[0-9])/";
 
@@ -253,7 +239,7 @@ function updatePassword(){
 
 function modify()
 {
-    require("./app/core/models/UserModel.php");
+    require_once("./app/core/models/UserModel.php");
 
     // controlle données
 
@@ -261,4 +247,9 @@ function modify()
 
     // redirection ou message erreur
     updateUser($id, $pseudo, $mdp, $pfpic);
+}
+
+function showProfil()
+{
+    require_once './app/core/views/users/profil.php';
 }

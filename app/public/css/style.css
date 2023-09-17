@@ -1,88 +1,62 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display:ital@1&family=Roboto+Mono:wght@100&display=swap");
-header {
-  background-color: #424549;
-  width: 100%;
-}
-header nav *,
-header nav ::before,
-header nav ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-header nav .AcceuilPages {
+
+body {
   background-color: #36393E;
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
 }
-header nav body {
-  background-color: #424549;
-}
-header nav body header {
-  background-color: #424549;
-  width: 100%;
-}
-header nav body header nav {
+body header nav {
   max-width: 1500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: auto;
 }
-header nav body header nav p {
-  color: white;
-}
-header nav body header nav ul {
-  display: flex;
-  list-style: none;
-}
-header nav body header nav ul li a {
-  display: block;
-  padding: 2rem;
-  text-decoration: none;
-  color: white;
-}
-header nav body header nav ul li a:hover {
-  background-color: #7289da;
-  color: #424549;
-}
-header nav body header nav ul li a:hover img {
+body header nav img {
   width: 3rem;
 }
-header nav body header nav ul li a:hover ul {
+body header nav ul {
   display: flex;
   list-style: none;
 }
-header nav body header nav ul li a:hover ul li a {
+body header nav ul li a {
   display: block;
   padding: 2rem;
   text-decoration: none;
   color: white;
-  font-family: "Josefin Sans";
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
 }
-header nav body header nav ul li a:hover ul li a:hover {
+body header nav ul li a:hover {
   background-color: #7289da;
   color: #424549;
 }
-header nav body header main .discordPicuture {
+body main .discordPicuture {
   display: flex;
   justify-content: center;
 }
-header nav body header main .discordPicuture img {
+body main .discordPicuture img {
   width: 5rem;
   margin-top: 5rem;
 }
-header nav body header main .welcomeDiscord {
+body main .welcomeDiscord {
   text-align: center;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 15rem;
-  font-family: "Josefin Sans";
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
 }
-header nav body header main .welcomeDiscord a {
+body main .welcomeDiscord a {
   color: #7289da;
 }
-header nav body header .salonPage .messageSalon {
+.salonPage .messageSalon {
   top: 50%;
   text-align: center;
   color: white;
@@ -90,16 +64,16 @@ header nav body header .salonPage .messageSalon {
   left: 50%;
   transform: translate(-50%, 50%);
 }
-header nav body header .salonPage .formMess {
+.salonPage .formMess {
   position: absolute;
   bottom: 0;
   transform: translate(-50%, 50%);
   left: 50%;
 }
-header nav body header .salonPage .formMess .champ {
+.salonPage .formMess .champ {
   position: relative;
 }
-header nav body header .salonPage .formMess .champ .chatPost {
+.salonPage .formMess .champ .chatPost {
   border-radius: 0 10px 10px 0;
   position: absolute;
   right: 0;
@@ -109,13 +83,14 @@ header nav body header .salonPage .formMess .champ .chatPost {
   width: 2rem;
   cursor: pointer;
 }
-header nav body header .salonPage .formMess .champ textarea {
+.salonPage .formMess .champ textarea {
   border-radius: 10px;
   background-color: #7289da;
   padding: 0.3rem;
   width: 25rem;
 }
-header nav body header .contnair {
+
+.container {
   height: 100vh;
   background-image: url("./../../src/img/fondConInsc.jpg");
   display: flex;
@@ -124,7 +99,7 @@ header nav body header .contnair {
   background-position: center;
   background-repeat: no-repeat;
 }
-header nav body header .contnair .all {
+.container .all {
   background: #424549;
   height: 50vh;
   margin: auto;
@@ -132,32 +107,33 @@ header nav body header .contnair .all {
   border: solid 2px #424549;
   box-shadow: -1px 3px 10px 10px #7289da;
 }
-header nav body header .contnair .all h2 {
+.container .all h2 {
   color: white;
   padding-top: 5rem;
-  font-family: "Josefin Sans";
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
-header nav body header .contnair .all .blocJoinCreate {
-  font-family: "Josefin Sans";
+.container .all .blocJoinCreate {
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   margin-top: 10rem;
   display: flex;
   justify-content: space-around;
 }
-header nav body header .contnair .all .blocJoinCreate a {
-  font-family: "Josefin Sans";
+.container .all .blocJoinCreate a {
+  font-family: "Josefin Sans", Verdana, Geneva, Tahoma, sans-serif;
   transition: 0.5s;
   padding: 2rem;
   color: white;
   text-decoration: none;
 }
-header nav body header .contnair .all .blocJoinCreate a:hover {
+.container .all .blocJoinCreate a:hover {
   font-size: 2rem;
   cursor: pointer;
   background-color: #7289da;
 }
-header nav body header .body_form {
+
+.body_form {
   display: flex;
   justify-content: center;
   background-image: url("./../../src/img/fondConInsc.jpg");
@@ -166,7 +142,8 @@ header nav body header .body_form {
   background-repeat: no-repeat;
   height: 100vh;
 }
-header nav body header .form {
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,17 +154,20 @@ header nav body header .form {
   border-radius: 5px;
   background-color: #424549;
 }
-header nav body header form h1 {
+
+form h1 {
   color: white;
 }
-header nav body header .form .input-span {
+
+.form .input-span {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-header nav body header form input[type=text],
-header nav body header form input[type=password] {
+
+form input[type=text],
+form input[type=password] {
   border-radius: 0.5rem;
   padding: 1rem 0.75rem;
   width: 100%;
@@ -199,17 +179,20 @@ header nav body header form input[type=password] {
   background-color: #36393E;
   outline: 2px solid #7289da;
 }
-header nav body header form input[type=text]:focus,
-header nav body header form input[type=password]:focus {
+
+form input[type=text]:focus,
+form input[type=password]:focus {
   outline: 2px solid #7289da;
   background-color: #36457c;
 }
-header nav body header .label {
+
+.label {
   align-self: flex-start;
   color: white;
   font-weight: 600;
 }
-header nav body header form .submit {
+
+form .submit {
   padding: 1rem 0.75rem;
   width: 50%;
   display: flex;
@@ -225,44 +208,49 @@ header nav body header form .submit {
   font-weight: 600;
   font-size: 0.9rem;
 }
-header nav body header form .submit:hover {
+
+form .submit:hover {
   background-color: #36457c;
   color: white;
 }
-header nav body header .span {
+
+.span {
   text-decoration: none;
   color: white;
 }
-header nav body header .span a {
+
+.span a {
   color: #7289da;
 }
-header nav body header .white {
+
+.white {
   display: flex;
   justify-content: center;
   color: white;
 }
-header nav body .positionChannel {
+
+.positionChannel {
   display: flex;
   align-items: center;
   transition: transform 0.2s;
 }
-header nav body .imgChannel {
+
+.imgChannel {
   width: 40px;
   height: 40px;
 }
-header nav body aside {
+
+aside {
   width: 25%;
   border-right: 2px solid cornflowerblue;
 }
-header nav body aside span {
+aside span {
   display: flex;
   color: white;
 }
-header nav body .positionChannel:hover {
+
+.positionChannel:hover {
   transform: scale(1.1);
-}
-header nav body .white {
-  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
