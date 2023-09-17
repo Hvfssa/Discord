@@ -54,7 +54,7 @@ function sendAddChannel()
             $desc = $_POST['description'];
             $pic = $_POST['image'];
             addChannel($name, $desc, $pic);
-            header('Location: ./app/core/views/channels/all.php');
+            header('Location: index.php?controller=channel&action=showAllChannels');
         } else {
             var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
         }
