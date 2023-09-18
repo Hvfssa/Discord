@@ -17,7 +17,7 @@ function Validator($array)
 
     //  initialisation de la variable qui va afficher les messages d'erreurs
     $msgError = [];
-    if ($_FILES) {
+    if ($_FILES["image"]["tmp_name"] != null) {
         $tempPath = $_FILES["image"]["tmp_name"];
         if (exif_imagetype($tempPath) < 1 || exif_imagetype($tempPath) > 18) {
             $msgError[] = "Votre fichier n'est pas une image valide";
