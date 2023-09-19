@@ -122,7 +122,7 @@ function sendUpdateChannel()
 
         $verif->validation_rules([
             'id' => 'required|numeric',
-            'name' => 'required|alpha_numeric|max_len,50',
+            'nom' => 'required|alpha_numeric|max_len,50',
             'description' => 'alpha_numeric|max_len,255',
             'image' => 'max_len,255',
         ]);
@@ -132,14 +132,14 @@ function sendUpdateChannel()
                 'required' => 'le nom ne peut pas être vide',
                 'numeric' => 'le nom ne peut contenir que des chiffres',
             ],
-            'name' => [
+            'nom' => [
                 'required' => 'le nom ne peut pas être vide',
                 'alpha_numeric' => 'le nom ne peut contenir que des lettres et des chiffres',
                 'max_len' => 'le nom ne doit pas dépasser 50 caractères',
             ],
             'description' => [
-                'alpha_numeric' => 'le nom ne peut contenir que des lettres et des chiffres',
-                'max_len' => 'le nom ne doit pas dépasser 255 caractères',
+                'alpha_numeric' => 'la description ne peut contenir que des lettres et des chiffres',
+                'max_len' => 'la description ne doit pas dépasser 255 caractères',
             ],
             'image' => [
                 'max_len' => 'le chemin de l\'image ne doit pas dépasser 255 caractères',
@@ -148,7 +148,7 @@ function sendUpdateChannel()
 
         $verif->filter_rules([
             'id' => 'trim|sanitize_numbers',
-            'name' => 'trim|htmlencode|sanitize_string',
+            'nom' => 'trim|htmlencode|sanitize_string',
             'description' => 'trim|htmlencode|sanitize_string',
             'image' => 'trim|htmlencode|sanitize_string',
         ]);
@@ -162,6 +162,7 @@ function sendUpdateChannel()
             var_dump($verif->get_readable_errors());
             var_dump($error);
         } else {
+            var_dump($is_valid);
             $id = $_POST['id'];
             $name = $_POST['nom'];
             $desc = $_POST['description'];
@@ -190,7 +191,7 @@ function sendUpdateChannel()
 
         }
         } else {
-            var_dump($verif->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.']
+            var_dump($verif->get_readable_errors());
         }
 }
 function sendDeleteChannel()
